@@ -3,33 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduQuiz Pro | K-10 MCQ Platform</title>
+    <title>Shree Edu Hub | K-10 Interactive Learning</title>
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW Registered'))
+                    .catch(err => console.log('SW Failed', err));
+            });
+        }
+    </script>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo" onclick="location.reload()">Edu<span>Quiz</span></div>
+        <div class="logo" onclick="location.reload()">Shree<span>EduHub</span></div>
         
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search topics (e.g. Gravity)...">
+            <input type="text" id="searchInput" placeholder="Search topics...">
             <button onclick="handleSearch()">🔍</button>
         </div>
 
         <ul class="nav-links">
             <li><a href="#" onclick="location.reload()">Home</a></li>
             <li class="dropdown">
-                <a href="javascript:void(0)">All Classes ▾</a>
+                <a href="javascript:void(0)">Classes ▾</a>
                 <ul class="dropdown-menu">
                     <li class="sub-label">Primary</li>
                     <li><a href="#" onclick="showSubjects(1)">Class 1</a></li>
@@ -51,81 +59,78 @@
     <div id="heroSection">
         <header class="hero">
             <h1>Learn. Practice. Excel.</h1>
-            <p>Interactive MCQs for students from Class 1 to 10.</p>
+            <p>Interactive Quizzes for Students (Class 1 to 10)</p>
         </header>
 
-        <section class="class-grid-container">
-            <div class="grid-wrapper">
-                <div class="class-card" onclick="showSubjects(1)"> <div class="card-icon">🌱</div> <h3>Class 1</h3> </div>
-                <div class="class-card" onclick="showSubjects(2)"> <div class="card-icon">🎨</div> <h3>Class 2</h3> </div>
-                <div class="class-card" onclick="showSubjects(3)"> <div class="card-icon">🚲</div> <h3>Class 3</h3> </div>
-                <div class="class-card" onclick="showSubjects(4)"> <div class="card-icon">🌍</div> <h3>Class 4</h3> </div>
-                <div class="class-card" onclick="showSubjects(5)"> <div class="card-icon">🧪</div> <h3>Class 5</h3> </div>
-                <div class="class-card" onclick="showSubjects(6)"> <div class="card-icon">🔍</div> <h3>Class 6</h3> </div>
-                <div class="class-card" onclick="showSubjects(7)"> <div class="card-icon">🏛️</div> <h3>Class 7</h3> </div>
-                <div class="class-card" onclick="showSubjects(8)"> <div class="card-icon">🧬</div> <h3>Class 8</h3> </div>
-                <div class="class-card" onclick="showSubjects(9)"> <div class="card-icon">📐</div> <h3>Class 9</h3> </div>
-                <div class="class-card" onclick="showSubjects(10)"> <div class="card-icon">🎓</div> <h3>Class 10</h3> </div>
-            </div>
+        <section class="grid-wrapper">
+            <div class="class-card" onclick="showSubjects(1)"> <div class="card-icon">🌱</div> <h3>Class 1</h3> </div>
+            <div class="class-card" onclick="showSubjects(2)"> <div class="card-icon">🎨</div> <h3>Class 2</h3> </div>
+            <div class="class-card" onclick="showSubjects(3)"> <div class="card-icon">🚲</div> <h3>Class 3</h3> </div>
+            <div class="class-card" onclick="showSubjects(4)"> <div class="card-icon">🌍</div> <h3>Class 4</h3> </div>
+            <div class="class-card" onclick="showSubjects(5)"> <div class="card-icon">🧪</div> <h3>Class 5</h3> </div>
+            <div class="class-card" onclick="showSubjects(6)"> <div class="card-icon">🔍</div> <h3>Class 6</h3> </div>
+            <div class="class-card" onclick="showSubjects(7)"> <div class="card-icon">🏛️</div> <h3>Class 7</h3> </div>
+            <div class="class-card" onclick="showSubjects(8)"> <div class="card-icon">🧬</div> <h3>Class 8</h3> </div>
+            <div class="class-card" onclick="showSubjects(9)"> <div class="card-icon">📐</div> <h3>Class 9</h3> </div>
+            <div class="class-card" onclick="showSubjects(10)"> <div class="card-icon">🎓</div> <h3>Class 10</h3> </div>
         </section>
 
         <div class="leaderboard-box">
             <h3>Top Scorers 🏆</h3>
             <ul id="scoreList"></ul>
-            <button class="next-btn" style="background:#e74c3c; margin-top:10px;" onclick="clearScores()">
-    Clear All Scores 🗑️
-</button>
+            <button class="next-btn" style="background:#e74c3c; margin-top:10px; font-size: 0.8rem;" onclick="clearScores()">
+                Reset Records 🗑️
+            </button>
         </div>
     </div>
 
-   <div id="quiz-container">
-    <div id="bulk-questions-area">
+    <main id="quiz-container" style="display:none;">
+        <button class="close-btn" style="float: right; margin-bottom: 10px;" onclick="location.reload()">✖ Exit</button>
+        
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
         </div>
-    
-    <button id="submit-bulk-btn" class="next-btn" style="display:none;" onclick="calculateBulkResults()">
-        Submit Quiz 📝
-    </button>
-</div>
 
-<div id="result-area" style="display:none;">
-    <h2 id="final-score"></h2>
-    <div id="score-summary"></div>
-    <button class="next-btn" onclick="location.reload()">Try Again</button>
-</div>
-     <div id="resultScreen" style="display:none; text-align:center; padding: 20px;">
-    <h2 style="font-size: 2rem;">Quiz Completed!</h2>
-    <div id="finalEmoji" style="font-size: 4rem; margin: 20px 0;">🏆</div>
-    <p style="font-size: 1.2rem;">You scored <span id="finalScoreText">0</span> out of 10</p>
-    
-    <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center;">
-        <button class="next-btn" onclick="restartCurrentQuiz()">Retake Quiz 🔄</button>
-        <button class="next-btn" style="background:#7f8c8d;" onclick="location.reload()">Home 🏠</button>
-    </div>
-</div>
+        <div id="bulk-questions-area">
+            </div>
     </main>
 
-    <div id="subjectOverlay" class="overlay">
-    <div class="overlay-content">
-        <span class="close-btn" onclick="closeOverlay()">&times;</span>
-        <h2 id="selectedClassTitle">Select Subject</h2>
-        
-        <div id="subjectListButtons" class="subject-buttons-grid"></div>
+    <div id="result-area" style="display:none;">
+        <div id="final-score"></div>
+        <button class="next-btn" onclick="location.reload()">Take Another Quiz 🔄</button>
+    </div>
 
-        <div id="topicSelection" style="display:none; margin-top: 20px;">
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-            <h3>Select Topic</h3>
-            <select id="topicDropdown" class="sub-btn" style="width: 100%; margin-top: 10px;">
-                </select>
-            <button class="next-btn" style="margin-top: 15px; width: 100%;" onclick="startTopicQuiz()">Start Quiz</button>
+    <div id="subjectOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay()">&times;</span>
+            <h2 id="selectedClassTitle">Select Subject</h2>
+            <div id="subjectListButtons" class="subject-buttons-grid"></div>
+
+            <div id="topicSelection" style="display:none; margin-top: 20px;">
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <h3>Choose Topic</h3>
+                <select id="topicDropdown" class="sub-btn" style="width: 100%; margin-top: 10px;"></select>
+                <button class="next-btn" style="margin-top: 15px;" onclick="startTopicQuiz()">Start Quiz</button>
+            </div>
         </div>
     </div>
-</div>
+
+    <div id="install-banner" class="install-container" style="display: none;">
+        <div class="install-content">
+            <span>Install <strong>Shree Edu Hub</strong> for offline practice! 📱</span>
+            <div class="install-actions">
+                <button id="btnInstall" class="next-btn" style="padding: 8px 20px;">Install</button>
+                <button id="btnNoThanks" class="sub-btn" style="padding: 8px 20px; font-size: 0.8rem;">Later</button>
+            </div>
+        </div>
+    </div>
 
     <script src="data/class1/science.js"></script><script src="data/class1/sst.js"></script><script src="data/class1/gk.js"></script>
     <script src="data/class2/science.js"></script><script src="data/class2/sst.js"></script><script src="data/class2/gk.js"></script>
     <script src="data/class3/science.js"></script><script src="data/class3/sst.js"></script><script src="data/class3/gk.js"></script>
     <script src="data/class4/science.js"></script><script src="data/class4/sst.js"></script><script src="data/class4/gk.js"></script>
-    <script src="data/class5/science.js"></script><script src="data/class5/sst.js"></script><script src="data/class5/gk.js"></script><script src="data/class5/grammar.js"></script><script src="data/class5/computers.js"></script>
+    <script src="data/class5/science.js"></script><script src="data/class5/sst.js"></script><script src="data/class5/gk.js"></script>
+    <script src="data/class5/grammar.js"></script><script src="data/class5/computers.js"></script>
     <script src="data/class6/science.js"></script><script src="data/class6/sst.js"></script><script src="data/class6/gk.js"></script>
     <script src="data/class7/science.js"></script><script src="data/class7/sst.js"></script><script src="data/class7/gk.js"></script>
     <script src="data/class8/science.js"></script><script src="data/class8/sst.js"></script><script src="data/class8/gk.js"></script>
@@ -133,14 +138,6 @@
     <script src="data/class10/science.js"></script><script src="data/class10/sst.js"></script><script src="data/class10/gk.js"></script>
 
     <script src="script.js"></script>
-<div id="install-banner" class="install-container" style="display: none;">
-    <div class="install-content">
-        <span>Install <strong>Shree Edu Hub</strong> for offline practice! 📱</span>
-        <div class="install-actions">
-            <button id="btnInstall" class="next-btn">Install App</button>
-            <button id="btnNoThanks" class="close-banner-btn">Maybe Later</button>
-        </div>
-    </div>
-</div>
+
 </body>
 </html>
