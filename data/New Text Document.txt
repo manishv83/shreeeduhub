@@ -1,0 +1,63 @@
+{
+        subject: "Science",
+        question: "Which simple machine is used in a flagpole to raise the flag?",
+        options: ["Lever", "Inclined Plane", "Pulley", "Wheel and Axle"],
+        answer: 2,
+        explanation: "A pulley consists of a wheel and a rope. It changes the direction of the force, making it easier to lift the flag."
+    },
+    {   topic: "Atmosphere"
+        subject: "Science",
+        question: "What is the percentage of Nitrogen in the Earth's atmosphere?",
+        options: ["21%", "0.03%", "78%", "1%"],
+        answer: 2,
+        explanation: "Nitrogen is the most abundant gas in our atmosphere (78%), followed by Oxygen (21%)."
+    },
+    {   topic: "Circulatory System",
+        subject: "Science",
+        question: "The process by which plants lose water through their leaves is called:",
+        options: ["Photosynthesis", "Transpiration", "Respiration", "Germination"],
+        answer: 1,
+        explanation: "Transpiration is like 'sweating' for plants. It helps the plant stay cool and move nutrients up from the roots."
+    },
+ {
+        subject: "Science",
+        question: "Which gas is needed for burning (combustion)?",
+        options: ["Nitrogen", "Carbon Dioxide", "Oxygen", "Hydrogen"],
+        answer: 2,
+        explanation: "Oxygen supports burning. If you cover a burning candle with a glass, it goes out because the oxygen supply is cut off."
+    },
+{
+        subject: "Science",
+        question: "Animals that eat both plants and the flesh of other animals are called:",
+        options: ["Herbivores", "Carnivores", "Omnivores", "Scavengers"],
+        answer: 2,
+        explanation: "Humans, bears, and crows are examples of omnivores because they eat both plant-based food and meat."
+    },
+ {
+        subject: "Science",
+        question: "What is the process of solid changing directly into gas called?",
+        options: ["Evaporation", "Sublimation", "Condensation", "Melting"],
+        answer: 1,
+        explanation: "Sublimation is when a solid (like naphthalene balls or camphor) turns directly into gas without becoming a liquid."
+    },
+{
+        subject: "Science",
+        question: "Which gas do plants absorb during photosynthesis?",
+        options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        answer: 1,
+        explanation: "Plants take in Carbon Dioxide and release Oxygen during the day."
+    },
+   
+    {
+        question: "Which part of the seed stores food for the baby plant?",
+        options: ["Seed Coat", "Cotyledon", "Root", "Stem"],
+        answer: 1,
+        explanation: "The cotyledon (seed leaf) stores food that the baby plant uses until it can grow its own leaves and make food."
+    },
+    {
+        subject: "Science",
+        question: "Which of these is a 'Deficiency Disease' caused by lack of Vitamin A?",
+        options: ["Scurvy", "Rickets", "Night Blindness", "Beriberi"],
+        answer: 2,
+        explanation: "Lack of Vitamin A affects our vision, leading to night blindness. Carrots and papaya are good sources of Vitamin A."
+    },
