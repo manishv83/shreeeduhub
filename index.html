@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Edu Hub | K-10 Interactive Learning</title>
+    <title>Shree Edu Hub | K-12 Interactive Learning</title>
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -29,13 +29,15 @@
     <nav class="navbar">
         <div class="logo" onclick="location.reload()">Shree<span>EduHub</span></div>
         
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search topics...">
-            <button onclick="handleSearch()">🔍</button>
-        </div>
+       <div class="search-box">
+    <input type="text" id="topicSearchInput" placeholder="Search Topics...">
+    <button onclick="searchByTopic()">🔍</button>
+    </div>
+
+    <div id="searchFeedback" style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 5px;"></div>
 
         <ul class="nav-links">
-            <li><a href="#" onclick="location.reload()">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)">Classes ▾</a>
                 <ul class="dropdown-menu">
@@ -51,6 +53,9 @@
                     <li><a href="#" onclick="showSubjects(8)">Class 8</a></li>
                     <li><a href="#" onclick="showSubjects(9)">Class 9</a></li>
                     <li><a href="#" onclick="showSubjects(10)">Class 10</a></li>
+                    <li class="sub-label">Higher Secondary</li>
+                    <li><a href="#" onclick="showSubjects(11)">Class 11</a></li>
+                    <li><a href="#" onclick="showSubjects(12)">Class 12</a></li>
                 </ul>
             </li>
         </ul>
@@ -59,7 +64,7 @@
     <div id="heroSection">
         <header class="hero">
             <h1>Learn. Practice. Excel.</h1>
-            <p>Interactive Quizzes for Students (Class 1 to 10)</p>
+            <p>Interactive Quizzes for Students (Class 1 to 12)</p>
         </header>
 
         <section class="grid-wrapper">
@@ -73,6 +78,8 @@
             <div class="class-card" onclick="showSubjects(8)"> <div class="card-icon">🧬</div> <h3>Class 8</h3> </div>
             <div class="class-card" onclick="showSubjects(9)"> <div class="card-icon">📐</div> <h3>Class 9</h3> </div>
             <div class="class-card" onclick="showSubjects(10)"> <div class="card-icon">🎓</div> <h3>Class 10</h3> </div>
+            <div class="class-card" onclick="showSubjects(11)"> <div class="card-icon">⚛️</div> <h3>Class 11</h3> </div>
+            <div class="class-card" onclick="showSubjects(12)"> <div class="card-icon">🔭</div> <h3>Class 12</h3> </div>
         </section>
 
         <div class="leaderboard-box">
@@ -83,7 +90,6 @@
             </button>
         </div>
     </div>
-
     <main id="quiz-container" style="display:none;">
         <button class="close-btn" style="float: right; margin-bottom: 10px;" onclick="location.reload()">✖ Exit</button>
         
@@ -124,7 +130,20 @@
             </div>
         </div>
     </div>
-
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Shree Edu Hub. All Rights Reserved.</p>
+        <p>Designed for K-12 Interactive Learning | Patna, Bihar</p>
+        <div class="footer-links">
+            <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+            
+        </div>
+    </div>
+</footer>
     <script src="data/class1/science.js"></script><script src="data/class1/sst.js"></script><script src="data/class1/gk.js"></script>
     <script src="data/class2/science.js"></script><script src="data/class2/sst.js"></script><script src="data/class2/gk.js"></script>
     <script src="data/class3/science.js"></script><script src="data/class3/sst.js"></script><script src="data/class3/gk.js"></script>
@@ -136,7 +155,10 @@
     <script src="data/class8/science.js"></script><script src="data/class8/sst.js"></script><script src="data/class8/gk.js"></script>
     <script src="data/class9/science.js"></script><script src="data/class9/sst.js"></script><script src="data/class9/gk.js"></script>
     <script src="data/class10/science.js"></script><script src="data/class10/sst.js"></script><script src="data/class10/gk.js"></script>
-
+    <script src="data/class11/physics.js"></script>
+    <script src="data/class11/chemistry.js"></script>
+    <script src="data/class12/physics.js"></script>
+    <script src="data/class12/chemistry.js"></script>
     <script src="script.js"></script>
 
 </body>

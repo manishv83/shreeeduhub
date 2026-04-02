@@ -9,44 +9,49 @@ let score = 0;
 const correctSound = new Audio('assets/audio/correct.mp3');
 const wrongSound = new Audio('assets/audio/wrong.mp3');
 const finalSound = new Audio('assets/audio/final.mp3');
-
+/* --- GLOBAL DATA REGISTRY --- */
+const masterDataMap = () => ({
+    "1_Science": typeof class1Science !== 'undefined' ? class1Science : [],
+    "1_SST": typeof class1SST !== 'undefined' ? class1SST : [],
+    "1_GK": typeof class1GK !== 'undefined' ? class1GK : [],
+    "2_Science": typeof class2Science !== 'undefined' ? class2Science : [],
+    "2_SST": typeof class2SST !== 'undefined' ? class2SST : [],
+    "2_GK": typeof class2GK !== 'undefined' ? class2GK : [],
+    "3_Science": typeof class3Science !== 'undefined' ? class3Science : [],
+    "3_SST": typeof class3SST !== 'undefined' ? class3SST : [],
+    "3_GK": typeof class3GK !== 'undefined' ? class3GK : [],
+    "4_Science": typeof class4Science !== 'undefined' ? class4Science : [],
+    "4_SST": typeof class4SST !== 'undefined' ? class4SST : [],
+    "4_GK": typeof class4GK !== 'undefined' ? class4GK : [],
+    "5_Science": typeof class5Science !== 'undefined' ? class5Science : [],
+    "5_SST": typeof class5SST !== 'undefined' ? class5SST : [],
+    "5_GK": typeof class5GK !== 'undefined' ? class5GK : [],
+    "5_Grammar": typeof class5Grammar !== 'undefined' ? class5Grammar : [],
+    "5_Computers": typeof class5Computers !== 'undefined' ? class5Computers : [],
+    "6_Science": typeof class6Science !== 'undefined' ? class6Science : [],
+    "6_SST": typeof class6SST !== 'undefined' ? class6SST : [],
+    "6_GK": typeof class6GK !== 'undefined' ? class6GK : [],
+    "7_Science": typeof class7Science !== 'undefined' ? class7Science : [],
+    "7_SST": typeof class7SST !== 'undefined' ? class7SST : [],
+    "7_GK": typeof class7GK !== 'undefined' ? class7GK : [],
+    "8_Science": typeof class8Science !== 'undefined' ? class8Science : [],
+    "8_SST": typeof class8SST !== 'undefined' ? class8SST : [],
+    "8_GK": typeof class8GK !== 'undefined' ? class8GK : [],
+    "9_Science": typeof class9Science !== 'undefined' ? class9Science : [],
+    "9_SST": typeof class9SST !== 'undefined' ? class9SST : [],
+    "9_GK": typeof class9GK !== 'undefined' ? class9GK : [],
+    "10_Science": typeof class10Science !== 'undefined' ? class10Science : [],
+    "10_SST": typeof class10SST !== 'undefined' ? class10SST : [],
+    "10_GK": typeof class10GK !== 'undefined' ? class10GK : [],
+    "11_Physics": typeof class11Physics !== 'undefined' ? class11Physics : [],
+    "11_Chemistry": typeof class11Chemistry !== 'undefined' ? class11Chemistry : [],
+    "12_Physics": typeof class12Physics !== 'undefined' ? class12Physics : [],
+    "12_Chemistry": typeof class12Chemistry !== 'undefined' ? class12Chemistry : []
+});
 /* --- 1. THE DATA BRIDGE --- */
 function getQuizData(key) {
-    const dataMap = {
-        "1_Science": typeof class1Science !== 'undefined' ? class1Science : [],
-        "1_SST": typeof class1SST !== 'undefined' ? class1SST : [],
-        "1_GK": typeof class1GK !== 'undefined' ? class1GK : [],
-        "2_Science": typeof class2Science !== 'undefined' ? class2Science : [],
-        "2_SST": typeof class2SST !== 'undefined' ? class2SST : [],
-        "2_GK": typeof class2GK !== 'undefined' ? class2GK : [],
-        "3_Science": typeof class3Science !== 'undefined' ? class3Science : [],
-        "3_SST": typeof class3SST !== 'undefined' ? class3SST : [],
-        "3_GK": typeof class3GK !== 'undefined' ? class3GK : [],
-        "4_Science": typeof class4Science !== 'undefined' ? class4Science : [],
-        "4_SST": typeof class4SST !== 'undefined' ? class4SST : [],
-        "4_GK": typeof class4GK !== 'undefined' ? class4GK : [],
-        "5_Science": typeof class5Science !== 'undefined' ? class5Science : [],
-        "5_SST": typeof class5SST !== 'undefined' ? class5SST : [],
-        "5_GK": typeof class5GK !== 'undefined' ? class5GK : [],
-        "5_Grammar": typeof class5Grammar !== 'undefined' ? class5Grammar : [],
-        "5_Computers": typeof class5Computers !== 'undefined' ? class5Computers : [],
-        "6_Science": typeof class6Science !== 'undefined' ? class6Science : [],
-        "6_SST": typeof class6SST !== 'undefined' ? class6SST : [],
-        "6_GK": typeof class6GK !== 'undefined' ? class6GK : [],
-        "7_Science": typeof class7Science !== 'undefined' ? class7Science : [],
-        "7_SST": typeof class7SST !== 'undefined' ? class7SST : [],
-        "7_GK": typeof class7GK !== 'undefined' ? class7GK : [],
-        "8_Science": typeof class8Science !== 'undefined' ? class8Science : [],
-        "8_SST": typeof class8SST !== 'undefined' ? class8SST : [],
-        "8_GK": typeof class8GK !== 'undefined' ? class8GK : [],
-        "9_Science": typeof class9Science !== 'undefined' ? class9Science : [],
-        "9_SST": typeof class9SST !== 'undefined' ? class9SST : [],
-        "9_GK": typeof class9GK !== 'undefined' ? class9GK : [],
-        "10_Science": typeof class10Science !== 'undefined' ? class10Science : [],
-        "10_SST": typeof class10SST !== 'undefined' ? class10SST : [],
-        "10_GK": typeof class10GK !== 'undefined' ? class10GK : []
-    };
-    return dataMap[key] || [];
+    const data = masterDataMap();
+    return data[key] || [];
 }
 
 const classSubjects = {
@@ -55,7 +60,8 @@ const classSubjects = {
     5: ["Science", "SST", "GK", "Grammar", "Computers"],
     6: ["Science", "SST", "GK"], 7: ["Science", "SST", "GK"],
     8: ["Science", "SST", "GK"], 9: ["Science", "SST", "GK"],
-    10: ["Science", "SST", "GK"]
+    10: ["Science", "SST", "GK"], 11: ["Physics", "Chemistry"],
+    12: ["Physics", "Chemistry"]
 };
 
 /* --- 2. NAVIGATION --- */
@@ -240,26 +246,80 @@ function displayScores() {
     list.innerHTML = scores.map(e => `<li>${e.name} <span>${e.score}/${e.total}</span></li>`).join('');
 }
 
-function handleSearch() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
+function searchByTopic() {
+    const query = document.getElementById('topicSearchInput').value.toLowerCase().trim();
     if (!query) return;
-    let matches = [];
-    for(let i=1; i<=10; i++) {
-        const subs = classSubjects[i];
-        subs.forEach(s => {
-            const data = getQuizData(`${i}_${s}`);
-            matches = matches.concat(data.filter(q => q.question.toLowerCase().includes(query)));
-        });
-    }
-    if (matches.length > 0) {
-        currentQuestions = matches.sort(() => 0.5 - Math.random()).slice(0, 10);
-        currentIndex = 0; score = 0;
-        document.getElementById('heroSection').style.display = 'none';
-        document.getElementById('quiz-container').style.display = 'block';
-        renderCurrentQuestion();
-    } else { alert("No results found."); }
+
+    let foundResults = [];
+    
+    // AUTOMATICALLY gets all keys: ["1_Science", "1_SST", ..., "10_GK"]
+    const allAvailableKeys = Object.keys(masterDataMap());
+
+    allAvailableKeys.forEach(key => {
+        const data = getQuizData(key);
+        
+        // Filter the topics within this specific subject
+        const matches = data.filter(q => q.topic && q.topic.toLowerCase().includes(query));
+        
+        if (matches.length > 0) {
+            // Group by Topic Name to avoid duplicate entries for the same topic
+            const uniqueMatchingTopics = [...new Set(matches.map(m => m.topic))];
+            
+            uniqueMatchingTopics.forEach(topicName => {
+                const topicSpecificCount = matches.filter(m => m.topic === topicName).length;
+                
+                foundResults.push({
+                    source: key.replace("_", " Class "),
+                    topicName: topicName,
+                    count: topicSpecificCount,
+                    key: key
+                });
+            });
+        }
+    });
+
+    displaySearchResults(foundResults);
 }
 
+function displaySearchResults(results) {
+    const container = document.getElementById('bulk-questions-area');
+    const hero = document.getElementById('heroSection');
+    
+    // 1. Setup the view
+    hero.style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('result-area').style.display = 'none';
+    
+    // 2. Clear previous results
+    container.innerHTML = "<h2>Search Results</h2>";
+
+    // 3. Handle No Results Found
+    if (results.length === 0) {
+        container.innerHTML += `
+            <div style="text-align:center; padding: 40px;">
+                <h3>🔍 No topics found.</h3>
+                <p>Try searching for 'Science', 'Grammar', or 'GK'.</p>
+                <button class="sub-btn" onclick="location.reload()">Back to Home</button>
+            </div>`;
+        return;
+    }
+
+    // 4. Render Result Cards
+    results.forEach(res => {
+        const div = document.createElement('div');
+        div.className = 'bulk-question-card';
+        div.innerHTML = `
+            <h3>${res.topicName} (${res.source})</h3>
+            <p>${res.count} questions available.</p>
+            <button class="next-btn" onclick="startSearchQuiz('${res.topicName}', '${res.key}')">
+                Start Practice 📝
+            </button>
+        `;
+        container.appendChild(div);
+    });
+    
+    window.scrollTo(0, 0); // Ensure user sees the results at the top
+}
 function clearScores() { if (confirm("Clear scores?")) { localStorage.removeItem('eduQuizScores'); displayScores(); } }
 
 /* --- 6. PWA INSTALL LOGIC --- */
@@ -285,3 +345,39 @@ document.getElementById('btnNoThanks')?.addEventListener('click', () => {
 });
 
 window.onload = displayScores;
+// Add this inside window.onload or at the bottom of script.js
+const year = new Date().getFullYear();
+const footerText = document.querySelector('.site-footer p');
+if (footerText) {
+    footerText.innerHTML = `&copy; ${year} Shree Edu Hub. All Rights Reserved.`;
+}
+function startSearchQuiz(topicName, key) {
+    // 1. Set global state so the engine knows which class/subject we are in
+    const parts = key.split('_');
+    lastClass = parts[0];
+    lastSubject = parts[1];
+
+    // 2. Fetch the data
+    const allData = getQuizData(key);
+    
+    // 3. Filter by the specific topic name
+    let filtered = allData.filter(q => q.topic === topicName);
+    
+    // 4. Randomize and limit to 10
+    currentQuestions = filtered.sort(() => 0.5 - Math.random()).slice(0, 10);
+    
+    // 5. Reset quiz state and launch
+    currentIndex = 0; 
+    score = 0;
+    
+    document.getElementById('heroSection').style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('result-area').style.display = 'none';
+    
+    renderCurrentQuestion();
+}
+document.getElementById('topicSearchInput')?.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchByTopic();
+    }
+});
