@@ -31,7 +31,6 @@ body {
 .logo { color: white; font-size: 1.5rem; font-weight: 600; cursor: pointer; }
 .logo span { color: #3498db; }
 
-/* Fixed Search Box for Click Functionality */
 .search-box { 
     display: flex; 
     align-items: center;
@@ -92,7 +91,6 @@ body {
 .dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu li a { color: #333; padding: 8px 20px; display: block; }
 .dropdown-menu li a:hover { background: #f8f9fa; color: #3498db; }
-.sub-label { font-size: 0.7rem; color: #999; padding: 5px 20px; text-transform: uppercase; font-weight: bold; }
 
 /* --- 3. DASHBOARD & CARDS --- */
 #heroSection { padding: 50px 5%; text-align: center; flex: 1; }
@@ -173,75 +171,53 @@ body {
     transition: 0.2s;
 }
 
-.sub-btn.active-sub {
-    background-color: #2ecc71 !important;
-    color: white !important;
-    border-color: #27ae60 !important;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px; right: 20px;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #999;
-}
-
-/* --- 5. QUIZ ENGINE & SEARCH RESULTS --- */
+/* --- 5. QUIZ ENGINE & SEARCH RESULTS (REVISED) --- */
 #quiz-container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 20px;
-    display: none;
-    flex: 1;
+    width: 95%;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 10px;
+    display: none; /* Controlled by JS */
+    flex-direction: column;
+    justify-content: center;
 }
 
 .bulk-question-card {
     background: white;
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 15px;
     animation: slideIn 0.4s ease-out forwards;
+    border: 1px solid #edf2f7;
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.q-text { 
+    font-size: 1.15rem; 
+    font-weight: 600; 
+    margin-bottom: 20px; 
+    line-height: 1.4; 
+    color: #2d3748;
 }
-
-/* Search specific card styling */
-.bulk-question-card h3 { color: #004a99; margin-bottom: 10px; }
-.bulk-question-card p { color: #666; margin-bottom: 15px; font-size: 0.95rem; }
-
-.q-header { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.9rem; }
-.q-number { font-weight: bold; color: #3498db; }
-.q-topic-tag { background: #f0f2f5; padding: 4px 10px; border-radius: 5px; color: #7f8c8d; }
-.q-text { font-size: 1.2rem; font-weight: 600; margin-bottom: 25px; line-height: 1.5; }
 
 .bulk-option {
     display: block;
     width: 100%;
     text-align: left;
     background: #fff;
-    padding: 15px 20px;
-    margin-bottom: 12px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s;
-    border: 2px solid #eee;
-    font-size: 1rem;
+    transition: all 0.2s ease;
+    border: 2px solid #f0f2f5;
+    font-size: 0.95rem;
 }
 
-.bulk-option:hover { border-color: #3498db; background: #f7fbff; }
-
-.bulk-explanation {
-    margin-top: 20px;
-    padding: 15px;
-    background: #fffde7;
-    border-left: 5px solid #fbc02d;
-    border-radius: 8px;
-    font-size: 0.95rem;
+.bulk-option:hover { 
+    border-color: #3498db; 
+    background: #f7fbff; 
+    transform: translateX(5px);
 }
 
 /* --- 6. PROGRESS BAR --- */
@@ -271,46 +247,9 @@ body {
     text-align: center;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     display: none;
-    flex: 1;
 }
 
-.badge-card {
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-.high-score-glow {
-    border: 3px solid #f1c40f !important;
-    box-shadow: 0 0 20px rgba(241, 196, 15, 0.6);
-    animation: goldGlow 2s infinite alternate;
-}
-
-@keyframes goldGlow {
-    from { transform: scale(1); box-shadow: 0 0 10px rgba(241, 196, 15, 0.4); }
-    to { transform: scale(1.02); box-shadow: 0 0 30px rgba(241, 196, 15, 0.8); }
-}
-
-.floating-emoji {
-    font-size: 3.5rem;
-    display: inline-block;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-.streak-badge {
-    color: #e67e22;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-/* --- 8. BUTTONS & LEADERBOARD --- */
+/* --- 8. BUTTONS --- */
 .next-btn {
     width: 100%;
     padding: 16px;
@@ -326,24 +265,6 @@ body {
 }
 
 .next-btn:hover { background: #34495e; transform: translateY(-2px); }
-
-.leaderboard-box {
-    background: white;
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-#scoreList li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-#scoreList span { font-weight: bold; color: #27ae60; }
 
 /* --- 9. FOOTER --- */
 .site-footer {
@@ -367,41 +288,67 @@ body {
 }
 
 .footer-links a {
-    color: #ffca28; /* Gold color for high visibility */
+    color: #ffca28;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
-    color: #fff;
-}
-
 /* --- 10. UTILITIES --- */
-.install-container {
-    position: fixed;
-    bottom: 20px; left: 50%;
-    transform: translateX(-50%);
-    width: 90%; max-width: 400px;
-    background: #2c3e50;
-    color: white;
-    padding: 15px;
-    border-radius: 12px;
-    z-index: 10000;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+@media (max-height: 800px) {
+    #quiz-container { margin: 10px auto; }
+    .bulk-question-card { padding: 20px; }
+    .q-text { font-size: 1.05rem; margin-bottom: 15px; }
+    .bulk-option { padding: 10px 15px; margin-bottom: 8px; }
 }
 
-#searchFeedback {
-    margin-top: 10px;
-    color: #e67e22;
-    font-size: 0.9rem;
-}
-
-/* Responsiveness */
 @media (max-width: 600px) {
     .navbar { padding: 1rem 3%; }
     .search-box input { width: 100px; }
     .hero h1 { font-size: 1.8rem; }
     .overlay-content { padding: 25px; }
+}
+/* Styling for the highlighted subject button */
+.sub-btn.active-sub {
+    background-color: #2ecc71 !important; /* Success Green */
+    color: white !important;
+    border-color: #27ae60 !important;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+    transform: scale(1.05); /* Slight pop effect */
+}
+
+/* Optional: Add a transition for a smooth color change */
+.sub-btn {
+    transition: all 0.2s ease-in-out;
+}
+.close-btn {
+    position: absolute;
+    top: 15px; 
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #bdc3c7;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #e74c3c; /* Turns red on hover to signal "Close/Exit" */
+}
+.q-header {
+    display: flex; /* Enables Flexbox */
+    justify-content: space-between; /* Pushes first item to left, second to right */
+    align-items: center; /* Keeps them perfectly leveled vertically */
+    width: 100%; /* Ensures it spans the full width of the card */
+    margin-bottom: 20px;
+}
+
+.q-topic-tag {
+    background: #f0f2f5;
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    font-weight: 500;
+    /* Optional: prevents the tag from disappearing if it's empty but still exists */
+    display: inline-block; 
 }

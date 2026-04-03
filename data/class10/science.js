@@ -123,6 +123,166 @@
         explanation: "An electric generator converts mechanical energy into electrical energy based on Electromagnetic Induction."
     },
 
+  {
+    topic: "Chemical Reactions",
+    subject: "Science",
+    question: "What type of reaction occurs when silver chloride is exposed to sunlight?",
+    options: ["Combination", "Decomposition", "Displacement", "Oxidation"],
+    answer: 1,
+    explanation: "Silver chloride undergoes photolytic decomposition, breaking down into silver metal and chlorine gas."
+  },
+  {
+    topic: "Life Processes",
+    subject: "Science",
+    question: "Which enzyme is present in human saliva that breaks down starch?",
+    options: ["Pepsin", "Trypsin", "Salivary Amylase", "Lipase"],
+    answer: 2,
+    explanation: "Salivary Amylase (also called ptyalin) begins the digestion of carbohydrates in the mouth."
+  },
+  {
+    topic: "Light",
+    subject: "Science",
+    question: "A convex mirror is generally used as a:",
+    options: ["Solar cooker mirror", "Shaving mirror", "Rear-view mirror in vehicles", "Headlight mirror"],
+    answer: 2,
+    explanation: "Convex mirrors provide a wider field of view and always form an erect, diminished image."
+  },
+  {
+    topic: "Acids, Bases and Salts",
+    subject: "Science",
+    question: "What is the pH value of a neutral solution at 25°C?",
+    options: ["0", "7", "14", "1"],
+    answer: 1,
+    explanation: "A pH of 7 indicates that the concentration of hydrogen ions and hydroxyl ions is equal."
+  },
+  {
+    topic: "Heredity",
+    subject: "Science",
+    question: "The process of RNA formation from DNA is called:",
+    options: ["Translation", "Translocation", "Transcription", "Mutation"],
+    answer: 2,
+    explanation: "Transcription is the first step of gene expression, where a particular segment of DNA is copied into RNA."
+  },
+  {
+    topic: "Electricity",
+    subject: "Science",
+    question: "What is the commercial unit of electrical energy?",
+    options: ["Watt", "Joule", "Kilowatt-hour (kWh)", "Volt"],
+    answer: 2,
+    explanation: "1 kWh is equal to 3.6 million Joules and is commonly referred to as one 'unit' of electricity."
+  },
+  {
+    topic: "Metals and Non-metals",
+    subject: "Science",
+    question: "Which metal exists in a liquid state at room temperature?",
+    options: ["Sodium", "Mercury", "Gallium", "Bromine"],
+    answer: 1,
+    explanation: "Mercury (Hg) is the only metal that is liquid at standard room temperature."
+  },
+  {
+    topic: "Human Eye",
+    subject: "Science",
+    question: "The ability of the eye lens to adjust its focal length is called:",
+    options: ["Myopia", "Hypermetropia", "Accommodation", "Presbyopia"],
+    answer: 2,
+    explanation: "Power of accommodation allows the eye to focus on both near and distant objects."
+  },
+  {
+    topic: "Carbon Compounds",
+    subject: "Science",
+    question: "Which of the following is the functional group for Carboxylic Acid?",
+    options: ["-OH", "-CHO", "-COOH", "-CO-"],
+    answer: 2,
+    explanation: "The carboxyl group (-COOH) consists of a carbon atom double-bonded to an oxygen and single-bonded to a hydroxyl group."
+  },
+  {
+    topic: "Control and Coordination",
+    subject: "Science",
+    question: "Which plant hormone is responsible for the 'wilting of leaves'?",
+    options: ["Auxin", "Gibberellin", "Cytokinin", "Abscisic Acid"],
+    answer: 3,
+    explanation: "Abscisic acid is a growth inhibitor that promotes dormancy and leaf fall."
+  },
+  {
+    topic: "Magnetic Effects",
+    subject: "Science",
+    question: "A device that converts electrical energy into mechanical energy is a:",
+    options: ["Generator", "Motor", "Galvanometer", "Ammeter"],
+    answer: 1,
+    explanation: "Electric motors use the magnetic effect of current to produce rotational motion."
+  },
+  {
+    topic: "Periodic Classification",
+    subject: "Science",
+    question: "In the Modern Periodic Table, vertical columns are called:",
+    options: ["Periods", "Groups", "Rows", "Series"],
+    answer: 1,
+    explanation: "There are 18 vertical groups and 7 horizontal periods in the modern table."
+  },
+  {
+    topic: "Reproduction",
+    subject: "Science",
+    question: "Binary fission is a method of reproduction seen in:",
+    options: ["Hydra", "Amoeba", "Spirogyra", "Yeast"],
+    answer: 1,
+    explanation: "Amoeba reproduces asexually by splitting its single cell into two daughter cells."
+  },
+  {
+    topic: "Our Environment",
+    subject: "Science",
+    question: "Which of the following is a non-biodegradable waste?",
+    options: ["Paper", "Fruit peels", "Plastic", "Cotton cloth"],
+    answer: 2,
+    explanation: "Plastic cannot be broken down by biological processes and remains in the environment for centuries."
+  },
+  {
+    topic: "Chemical Reactions",
+    subject: "Science",
+    question: "Adding an antioxidant to fat-containing food prevents:",
+    options: ["Corrosion", "Rancidity", "Fermentation", "Reduction"],
+    answer: 1,
+    explanation: "Antioxidants slow down the oxidation of fats, which causes unpleasant smells and tastes (rancidity)."
+  },
+  {
+    topic: "Life Processes",
+    subject: "Science",
+    question: "The site of complete digestion of carbohydrates, proteins, and fats is:",
+    options: ["Stomach", "Large Intestine", "Small Intestine", "Liver"],
+    answer: 2,
+    explanation: "The small intestine receives secretions from the liver and pancreas to complete digestion."
+  },
+  {
+    topic: "Sources of Energy",
+    subject: "Science",
+    question: "The main constituent of Biogas is:",
+    options: ["Ethane", "Methane", "Propane", "Butane"],
+    answer: 1,
+    explanation: "Biogas typically contains 50-75% methane gas."
+  },
+  {
+    topic: "Electricity",
+    subject: "Science",
+    question: "Resistance of a conductor is inversely proportional to its:",
+    options: ["Length", "Area of cross-section", "Temperature", "Resistivity"],
+    answer: 1,
+    explanation: "Thicker wires (larger cross-sectional area) offer less resistance to current flow."
+  },
+  {
+    topic: "Biology",
+    subject: "Science",
+    question: "Which part of the flower develops into a fruit after fertilization?",
+    options: ["Ovule", "Ovary", "Stigma", "Anther"],
+    answer: 1,
+    explanation: "The ovary matures into the fruit, while the ovules develop into seeds."
+  },
+  {
+    topic: "Chemistry",
+    subject: "Science",
+    question: "Which gas is evolved when Sodium Bicarbonate reacts with Acetic Acid?",
+    options: ["Hydrogen", "Oxygen", "Carbon Dioxide", "Nitrogen"],
+    answer: 2,
+    explanation: "The reaction between a carbonate and an acid always produces $CO_2$ gas, which causes brisk effervescence."
+  }
 
 ];
 

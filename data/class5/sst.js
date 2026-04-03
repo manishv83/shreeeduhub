@@ -283,84 +283,164 @@ const class5SST = [
         explanation: "Hyperloop uses vacuum tubes to allow pods to travel at incredibly high speeds."
     },
 
-    {
-        subject: "Social Science",
-        question: "Who is known as the 'Father of the Indian Constitution'?",
-        options: ["Mahatma Gandhi", "Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Sardar Patel"],
-        answer: 1,
-        explanation: "Dr. B.R. Ambedkar was the chairman of the drafting committee."
-    },
-    {
-        subject: "Social Science",
-        question: "Which imaginary line divides the Earth into the Northern and Southern Hemispheres?",
-        options: ["Prime Meridian", "Equator", "Tropic of Cancer", "Arctic Circle"],
-        answer: 1,
-        explanation: "The Equator is the 0° latitude line that circles the middle of the Earth like a belt."
-    },
-    
-    {
-        subject: "Social Science",
-        question: "Who was the leader of the 'Salt March' (Dandi March) in 1930?",
-        options: ["Subhas Chandra Bose", "Sardar Patel", "Mahatma Gandhi", "Jawaharlal Nehru"],
-        answer: 2,
-        explanation: "Mahatma Gandhi walked 240 miles to Dandi to protest against the British tax on salt."
-    },
-    {
-        subject: "Social Science",
-        question: "The 'Blue Planet' refers to which planet in our solar system?",
-        options: ["Mars", "Venus", "Earth", "Neptune"],
-        answer: 2,
-        explanation: "Earth is called the Blue Planet because 71% of its surface is covered by water."
-    },
-    {
-        subject: "Social Science",
-        question: "Which of these is a 'Renewable' source of energy?",
-        options: ["Coal", "Petroleum", "Solar Power", "Natural Gas"],
-        answer: 2,
-        explanation: "Solar power comes from the sun and will never run out, making it renewable and eco-friendly."
-    },
-    {
-        subject: "Social Science",
-        question: "What does the color 'Brown' usually represent on a physical map?",
-        options: ["Water bodies", "Plains", "Mountains", "Deserts"],
-        answer: 2,
-        explanation: "In standard map coloring, brown is used for mountains, green for plains, and blue for water."
-    },
-    
-    {
-        subject: "Social Science",
-        question: "Which was the first civilization to develop near the Indus River?",
-        options: ["Mesopotamian", "Indus Valley", "Egyptian", "Chinese"],
-        answer: 1,
-        explanation: "The Indus Valley Civilization (Harappan) flourished around 2500 BCE in present-day India and Pakistan."
-    },
-    {
-        subject: "Social Science",
-        question: "The study of weather patterns over a long period (30+ years) is called:",
-        options: ["Meteorology", "Climate", "Season", "Atmosphere"],
-        answer: 1,
-        explanation: "Weather changes daily, but Climate is the average weather condition of a place over many years."
-    },
-    {
-        subject: "Social Science",
-        question: "Which organ of the United Nations (UN) is responsible for maintaining world peace?",
-        options: ["General Assembly", "Secretariat", "Security Council", "UNESCO"],
-        answer: 2,
-        explanation: "The Security Council is the most powerful part of the UN, tasked with preventing conflicts."
-    },
-    {
-        subject: "Social Science",
-        question: "In which year did India become a Republic?",
-        options: ["1947", "1950", "1942", "1930"],
-        answer: 1,
-        explanation: "India became independent in 1947, but became a Republic on Jan 26, 1950, when the Constitution came into effect."
-    },
-    {
-        subject: "Social Science",
-        question: "Which continent is known as the 'Dark Continent'?",
-        options: ["Asia", "Africa", "Australia", "Antarctica"],
-        answer: 1,
-        explanation: "Africa was called the Dark Continent by Europeans because its interior remained unexplored for a long time."
-    },
-    
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "Which of the following was the first stage in the evolution of man?",
+    options: ["Homo habilis", "Australopithecus", "Homo erectus", "Neanderthal Man"],
+    answer: 1,
+    explanation: "Australopithecus is considered one of the earliest ancestors of humans, living about 4 million years ago."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "Which imaginary line divides the Earth into the Northern and Southern Hemispheres?",
+    options: ["Prime Meridian", "Tropic of Cancer", "Equator", "Arctic Circle"],
+    answer: 2,
+    explanation: "The Equator is the 0° latitude line that circles the middle of the Earth."
+  },
+  {
+    topic: "Civics",
+    subject: "Social Science",
+    question: "Who is the head of a 'Gram Panchayat' in a village?",
+    options: ["Mayor", "Sarpanch", "Commissioner", "Governor"],
+    answer: 1,
+    explanation: "The Sarpanch is the elected head of the village council (Panchayat)."
+  },
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "The 'Stone Age' is divided into three periods. Which one came first?",
+    options: ["Mesolithic", "Neolithic", "Palaeolithic", "Iron Age"],
+    answer: 2,
+    explanation: "The Palaeolithic (Old Stone Age) is the earliest period of human prehistory."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "Which is the largest continent on Earth?",
+    options: ["Africa", "Asia", "North America", "Europe"],
+    answer: 1,
+    explanation: "Asia is the largest continent in terms of both land area and population."
+  },
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "Homo erectus is known for which significant discovery?",
+    options: ["Wheel", "Agriculture", "Fire", "Writing"],
+    answer: 2,
+    explanation: "Homo erectus learned how to use and control fire, which helped them survive in cold climates."
+  },
+  {
+    topic: "Civics",
+    subject: "Social Science",
+    question: "How many Fundamental Rights are guaranteed by the Indian Constitution?",
+    options: ["Five", "Six", "Seven", "Eight"],
+    answer: 1,
+    explanation: "The Constitution of India provides six Fundamental Rights to its citizens."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "A huge landmass surrounded by water on all sides is called a/an:",
+    options: ["Island", "Peninsula", "Continent", "Isthmus"],
+    answer: 2,
+    explanation: "Continents are the world's main continuous expanses of land."
+  },
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "Which of the following animals was first domesticated by humans?",
+    options: ["Horse", "Dog", "Cat", "Cow"],
+    answer: 1,
+    explanation: "Dogs were the first animals to be domesticated, mainly to help with hunting."
+  },
+  {
+    topic: "Civics",
+    subject: "Social Science",
+    question: "At what age do citizens in India get the right to vote?",
+    options: ["15 years", "18 years", "21 years", "25 years"],
+    answer: 1,
+    explanation: "According to the law, any citizen aged 18 or older has the right to vote."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "Which ocean is named after a country?",
+    options: ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+    answer: 2,
+    explanation: "The Indian Ocean is named after the country India."
+  },
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "Where did the first civilizations usually develop?",
+    options: ["On mountains", "In deserts", "Near river banks", "In dense forests"],
+    answer: 2,
+    explanation: "Early civilizations developed near rivers because of fertile soil and easy access to water."
+  },
+  {
+    topic: "Civics",
+    subject: "Social Science",
+    question: "The group of people who make laws for the entire country is called:",
+    options: ["Judiciary", "Parliament", "Police", "Local Board"],
+    answer: 1,
+    explanation: "Parliament (the Legislature) is responsible for discussing and passing laws for the nation."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "The model of the Earth is called a:",
+    options: ["Map", "Globe", "Sketch", "Compass"],
+    answer: 1,
+    explanation: "A globe is a three-dimensional scale model of the Earth."
+  },
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "The transition from hunting to farming happened in which age?",
+    options: ["Old Stone Age", "Middle Stone Age", "New Stone Age", "Copper Age"],
+    answer: 2,
+    explanation: "The Neolithic (New Stone Age) is when humans began practicing agriculture and settling in one place."
+  },
+  {
+    topic: "Civics",
+    subject: "Social Science",
+    question: "Which document contains the rules according to which a country is governed?",
+    options: ["Newspaper", "Constitution", "Dictionary", "Storybook"],
+    answer: 1,
+    explanation: "The Constitution is the supreme law of a country."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "Which of these is a 'Natural Resource'?",
+    options: ["Plastic", "Electricity", "Water", "Roads"],
+    answer: 2,
+    explanation: "Water is found in nature and is essential for all life forms."
+  },
+  {
+    topic: "History",
+    subject: "Social Science",
+    question: "What was the main purpose of the first stone tools made by humans?",
+    options: ["Decoration", "Hunting and skinning animals", "Building houses", "Farming"],
+    answer: 1,
+    explanation: "Early humans used sharp stones primarily for hunting and scraping meat from hides."
+  },
+  {
+    topic: "Civics",
+    subject: "Social Science",
+    question: "Our National Anthem was written by:",
+    options: ["Mahatma Gandhi", "Rabindranath Tagore", "Bankim Chandra Chattopadhyay", "Sardar Patel"],
+    answer: 1,
+    explanation: "Rabindranath Tagore composed 'Jana Gana Mana', the national anthem of India."
+  },
+  {
+    topic: "Geography",
+    subject: "Social Science",
+    question: "How many continents are there on Earth?",
+    options: ["Five", "Six", "Seven", "Eight"],
+    answer: 2,
+    explanation: "There are seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
+  }
 ];

@@ -133,8 +133,8 @@ function renderCurrentQuestion() {
         <div class="bulk-question-card animate-pop">
             <div class="q-header">
                 <span class="q-number">Question ${currentIndex + 1} of ${currentQuestions.length}</span>
-                <span class="q-topic-tag">${q.topic}</span>
-            </div>
+                    ${q.topic ? `<span class="q-topic-tag">${q.topic}</span>` : ''}
+                </div>
             <p class="q-text">${q.question}</p>
             <div class="options-container">
                 ${q.options.map((opt, i) => `
@@ -381,3 +381,44 @@ document.getElementById('topicSearchInput')?.addEventListener('keypress', functi
         searchByTopic();
     }
 });
+// Global listener for the physical Escape key
+window.addEventListener('keydown', function (event) {
+    // Check if the key pressed is 'Escape' (modern browsers) or 'Esc' (IE/Edge)
+    if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27) {
+        
+        // Find the overlay
+        const overlay = document.querySelector('.overlay');
+        
+        // Only run the close function if the overlay is actually open
+        if (overlay && (overlay.style.display === 'flex' || overlay.style.display === 'block')) {
+            closeSubjectOverlay();
+        }
+    }
+});
+function closeSubjectOverlay() {
+    const overlay = document.querySelector('.overlay');
+    
+    if (overlay) {
+        overlay.style.display = 'none'; // Force hide
+    }
+
+    // Optional: Reset the buttons
+    const allButtons = document.querySelectorAll('.sub-btn');
+    allButtons.forEach(btn => btn.classList.remove('active-sub'));
+    
+    console.log("Escape successful: Overlay closed.");
+}
+// This checks: "Does topic exist? If yes, show the span. If no, show nothing."
+const topicTag = questionData.topic 
+    ? `<span class="q-topic-tag">${questionData.topic}</span>` 
+    : ''; 
+
+target.innerHTML = `
+    <div class="bulk-question-card">
+        <div class="q-header">
+            <span class="q-number">Question ${currentQuestionIndex + 1}</span>
+            ${topicTag} 
+        </div>
+        <div class="q-text">${questionData.question}</div>
+        </div>
+`;
