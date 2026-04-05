@@ -12,54 +12,16 @@
     <meta name="theme-color" content="#2c3e50">
     <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SVT Store">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('SW Registered'))
-                    .catch(err => console.log('SW Failed', err));
-            });
-        }
-    </script>
+    
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="logo" onclick="location.reload()">Shree<span>Vani Tutorial</span></div>
-        
-       <div class="search-box">
-    <input type="text" id="topicSearchInput" placeholder="Search Topics...">
-    <button onclick="searchByTopic()">🔍</button>
-    </div>
-
-    <div id="searchFeedback" style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 5px;"></div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)">Classes ▾</a>
-                <ul class="dropdown-menu">
-                    <li class="sub-label">Primary</li>
-                    <li><a href="#" onclick="showSubjects(1)">Class 1</a></li>
-                    <li><a href="#" onclick="showSubjects(2)">Class 2</a></li>
-                    <li><a href="#" onclick="showSubjects(3)">Class 3</a></li>
-                    <li><a href="#" onclick="showSubjects(4)">Class 4</a></li>
-                    <li><a href="#" onclick="showSubjects(5)">Class 5</a></li>
-                    <li class="sub-label">Secondary</li>
-                    <li><a href="#" onclick="showSubjects(6)">Class 6</a></li>
-                    <li><a href="#" onclick="showSubjects(7)">Class 7</a></li>
-                    <li><a href="#" onclick="showSubjects(8)">Class 8</a></li>
-                    <li><a href="#" onclick="showSubjects(9)">Class 9</a></li>
-                    <li><a href="#" onclick="showSubjects(10)">Class 10</a></li>
-                    <li class="sub-label">Higher Secondary</li>
-                    <li><a href="#" onclick="showSubjects(11)">Class 11</a></li>
-                    <li><a href="#" onclick="showSubjects(12)">Class 12</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
 
     <div id="heroSection">
         <header class="hero">
@@ -90,6 +52,7 @@
             </button>
         </div>
     </div>
+
     <main id="quiz-container" style="display:none;">
         <button class="close-btn" style="float: right; margin-bottom: 10px;" onclick="location.reload()">✖ Exit</button>
         
@@ -97,12 +60,12 @@
             <div id="progress-bar" class="progress-bar"></div>
         </div>
 
-        <div id="bulk-questions-area">
-            </div>
+        <div id="bulk-questions-area"></div>
     </main>
 
     <div id="result-area" style="display:none;">
         <div id="final-score"></div>
+        <div id="result-ad-slot" class="result-promo-box"></div>
         <button class="next-btn" onclick="location.reload()">Take Another Quiz 🔄</button>
     </div>
 
@@ -130,20 +93,9 @@
             </div>
         </div>
     </div>
-<footer class="site-footer">
-    <div class="footer-content">
-        <p>&copy; 2026 Shree Vani Tutorial. All Rights Reserved.</p>
-        <p>Designed for K-12 Interactive Learning</p>
-        <div class="footer-links">
-            <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-            
-        </div>
-    </div>
-</footer>
+
+    
+
     <script src="data/class1/science.js"></script><script src="data/class1/sst.js"></script><script src="data/class1/gk.js"></script>
     <script src="data/class2/science.js"></script><script src="data/class2/sst.js"></script><script src="data/class2/gk.js"></script>
     <script src="data/class3/science.js"></script><script src="data/class3/sst.js"></script><script src="data/class3/gk.js"></script>
@@ -160,5 +112,16 @@
     <script src="data/class12/physics.js"></script>
     <script src="data/class12/chemistry.js"></script>
     <script src="script.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+  <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW Registered'))
+                    .catch(err => console.log('SW Failed', err));
+            });
+        }
+    </script>
 </body>
 </html>

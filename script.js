@@ -48,6 +48,25 @@ const masterDataMap = () => ({
     "12_Physics": typeof class12Physics !== 'undefined' ? class12Physics : [],
     "12_Chemistry": typeof class12Chemistry !== 'undefined' ? class12Chemistry : []
 });
+// script.js
+window.addEventListener('load', () => {
+    // 1. Get the 'class' value from the URL (e.g., ?class=10)
+    const urlParams = new URLSearchParams(window.location.search);
+    const classId = urlParams.get('class');
+
+    // 2. If a class ID exists, trigger the overlay
+    if (classId) {
+        // We use a small delay (100ms) to ensure the DOM and Data files are ready
+        setTimeout(() => {
+            if (typeof showSubjects === 'function') {
+                showSubjects(parseInt(classId));
+                
+                // Optional: Clean the URL so refreshing doesn't keep opening the overlay
+                window.history.replaceState({}, document.title, "index.html");
+            }
+        }, 150);
+    }
+});
 /* --- 1. THE DATA BRIDGE --- */
 function getQuizData(key) {
     const data = masterDataMap();
@@ -112,6 +131,7 @@ function closeOverlay() { document.getElementById('subjectOverlay').style.displa
 
 /* --- 3. QUIZ LOGIC --- */
 function startTopicQuiz() {
+    window.lastAdIndex = -1;
     const selectedTopic = document.getElementById('topicDropdown').value;
     const key = `${lastClass}_${lastSubject}`;
     const allData = getQuizData(key);
@@ -129,12 +149,68 @@ function renderCurrentQuestion() {
     const q = currentQuestions[currentIndex];
     const area = document.getElementById('bulk-questions-area');
     updateProgressBar();
+
+    // AD BREAK: Every 3 questions
+    if (currentIndex > 0 && currentIndex % 5 === 0 && window.lastAdIndex !== currentIndex) {
+        let timeLeft = 5; // Reduced to 10 seconds
+
+        area.innerHTML = `
+            <div class="bulk-question-card animate-pop ad-break-card">
+                <div class="badge">Study Tip</div>
+                <h3>Quick Resource Break 💡</h3>
+                <p>Did you know? Using the right reference books can improve exam scores by up to 20%.</p>
+                
+                <div class="ad-preview-flex">
+                    <img src="https://via.placeholder.com/100x130?text=Exam+Guide">
+                    <div class="ad-text-right">
+                        <p style="margin:0; font-weight:600;">NCERT Plus Exemplar</p>
+                        <a href="storefront.html" target="_blank" class="amazon-btn-sm">View on Amazon</a>
+                    </div>
+                </div>
+
+                <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
+                
+                <button id="timed-continue-btn" class="next-btn" disabled style="background: #95a5a6; cursor: not-allowed; position: relative; overflow: hidden;">
+                    <span id="timer-text">Wait ${timeLeft}s...</span>
+                </button>
+                <p style="font-size: 0.7rem; color: #bbb; margin-top: 10px;">Next question loading shortly...</p>
+            </div>`;
+
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            const btn = document.getElementById('timed-continue-btn');
+            const txt = document.getElementById('timer-text');
+            
+            if (btn && txt) {
+                if (timeLeft > 0) {
+                    txt.innerText = `Wait ${timeLeft}s...`;
+                } else {
+                    clearInterval(timerInterval);
+                    btn.disabled = false;
+                    btn.style.background = "#2ecc71"; 
+                    btn.style.cursor = "pointer";
+                    txt.innerText = `Continue to Question ${currentIndex + 1} ➡️`;
+                    
+                    btn.onclick = () => {
+                        window.lastAdIndex = currentIndex;
+                        renderCurrentQuestion();
+                    };
+                }
+            } else {
+                clearInterval(timerInterval);
+            }
+        }, 1000);
+
+        return; 
+    }
+
+    // REGULAR QUESTION UI
     area.innerHTML = `
         <div class="bulk-question-card animate-pop">
             <div class="q-header">
                 <span class="q-number">Question ${currentIndex + 1} of ${currentQuestions.length}</span>
-                    ${q.topic ? `<span class="q-topic-tag">${q.topic}</span>` : ''}
-                </div>
+                ${q.topic ? `<span class="q-topic-tag">${q.topic}</span>` : ''}
+            </div>
             <p class="q-text">${q.question}</p>
             <div class="options-container">
                 ${q.options.map((opt, i) => `
@@ -193,6 +269,26 @@ function showFinalResults() {
         confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
     }
 
+    // --- NEW: AD CARD LOGIC ---
+    // If they did well, we suggest "Advanced" books. If they struggled, we suggest "Revision" books.
+    const adContent = isHighScore 
+        ? { title: "Challenge Yourself!", desc: "You're a pro! Try the NCERT Exemplar for advanced problems.", link: "YOUR_AMAZON_LINK" }
+        : { title: "Improve Your Score", desc: "Master the basics with these top-rated revision notes.", link: "YOUR_AMAZON_LINK" };
+
+    const adCard = `
+        <div class="result-ad-container animate-pop">
+            <span class="badge" style="background: #f1c40f; color: #000;">Student's Choice</span>
+            <div class="result-ad-flex">
+                <div class="ad-text">
+                    <h4>${adContent.title}</h4>
+                    <p>${adContent.desc}</p>
+                    <a href="${adContent.link}" target="_blank" class="amazon-btn" style="padding: 8px 15px; font-size: 0.8rem;">View on Amazon</a>
+                </div>
+                <img src="https://via.placeholder.com/80x110?text=Books" alt="Book Thumb">
+            </div>
+        </div>
+    `;
+
     document.getElementById('final-score').innerHTML = `
         <div class="badge-card ${isHighScore ? 'high-score-glow' : ''}">
             <div class="floating-emoji">${badge.emoji}</div>
@@ -200,7 +296,9 @@ function showFinalResults() {
             <p style="font-size: 1.5rem; margin: 10px 0;">Score: <strong>${score} / 10</strong></p>
             <div class="streak-badge">🔥 ${streak} Day Streak!</div>
         </div>
+        ${adCard} 
     `;
+    
     saveScore(score, 10);
 }
 
@@ -349,7 +447,7 @@ window.onload = displayScores;
 const year = new Date().getFullYear();
 const footerText = document.querySelector('.site-footer p');
 if (footerText) {
-    footerText.innerHTML = `&copy; ${year} Shree Edu Hub. All Rights Reserved.`;
+    footerText.innerHTML = `&copy; ${year} Shree Vani Tutorial. All Rights Reserved.`;
 }
 function startSearchQuiz(topicName, key) {
     // 1. Set global state so the engine knows which class/subject we are in
@@ -420,5 +518,38 @@ target.innerHTML = `
             ${topicTag} 
         </div>
         <div class="q-text">${questionData.question}</div>
+        </div>`;
+
+       function getMidQuizAd() {
+    if (typeof storefrontDatabase === 'undefined' || storefrontDatabase.length === 0) return "";
+
+    // 1. FILTER LOGIC: Look for products matching the current subject
+    // We use .toLowerCase() to ensure "physics" matches "Physics"
+    let targetedAds = storefrontDatabase.filter(p => 
+        p.title.toLowerCase().includes(lastSubject.toLowerCase()) || 
+        p.desc.toLowerCase().includes(lastSubject.toLowerCase())
+    );
+
+    // 2. FALLBACK LOGIC: If no specific subject book is found, pick any random ad
+    if (targetedAds.length === 0) {
+        targetedAds = storefrontDatabase;
+    }
+
+    // 3. PICK ONE: Select a random ad from the filtered list
+    const ad = targetedAds[Math.floor(Math.random() * targetedAds.length)];
+
+    return `
+        <div class="bulk-question-card mid-quiz-promo" style="border: 2px dashed #3498db; background: #f0f7ff;">
+            <span class="badge" style="background:#3498db;">Top Rated for ${lastSubject}</span>
+            <h4 style="margin: 10px 0;">${ad.title}</h4>
+            <div style="display:flex; align-items:center; gap:15px; text-align:left;">
+                <img src="${ad.image}" style="width:70px; border-radius:4px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+                <div>
+                    <p style="font-size: 0.85rem; color: #444; margin-bottom:8px;">${ad.desc}</p>
+                    <a href="${ad.link}" target="_blank" class="amazon-btn" style="font-size: 0.75rem; padding: 6px 12px; display:inline-block;">View on Amazon</a>
+                </div>
+            </div>
         </div>
-`;
+    `;
+}
+

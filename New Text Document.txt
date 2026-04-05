@@ -1,0 +1,8 @@
+<div class="affiliate-container">
+  <div class="product-card">
+    <img src="product-image.jpg" alt="Physics Reference Book">
+    <h3>Class 12 Physics Guide</h3>
+    <p>Comprehensive notes and solved papers.</p>
+    <a href="YOUR_AFFILIATE_LINK" class="buy-btn">View on Amazon</a>
+  </div>
+</div>
