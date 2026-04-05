@@ -683,3 +683,68 @@ body {
         flex: 0 0 auto; /* Prevents buttons from shrinking */
     }
 }
+
+/* --- MOBILE HEADER REPAIR --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        padding: 15px 5%;
+        gap: 15px; /* Add space between logo, search, and menu */
+        height: auto; /* Allow navbar to grow with content */
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center; /* Center the menu items */
+        gap: 15px;
+        flex-wrap: wrap; /* If too many items, they go to the next line */
+        padding: 5px 0;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem; /* Slightly smaller text for mobile */
+        padding: 5px 10px;
+        background: rgba(255, 255, 255, 0.05); /* Subtle button look */
+        border-radius: 5px;
+    }
+
+    .search-box {
+        width: 100%; /* Make search bar full width on mobile */
+        order: 2; /* Move search below the logo but above the menu */
+    }
+
+    .search-box input {
+        width: 100%; /* Input takes all space */
+    }
+
+    /* Hide complex dropdowns on mobile to prevent overlap */
+    .dropdown-menu {
+        position: static; /* Makes it part of the normal flow */
+        width: 100%;
+        box-shadow: none;
+        background: #34495e; /* Darker contrast for mobile */
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        display: flex;
+        overflow-x: auto; /* Enable side-swiping */
+        white-space: nowrap;
+        width: 100%;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hide scrollbar */
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links li {
+        flex: 0 0 auto; /* Stop items from shrinking */
+    }
+}
+.navbar {
+    overflow: visible !important; /* Ensures dropdowns can be seen */
+}
