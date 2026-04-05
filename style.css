@@ -748,3 +748,17 @@ body {
 .navbar {
     overflow: visible !important; /* Ensures dropdowns can be seen */
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#mainLogo {
+    height: 80px;
+    width: auto;
+    cursor: pointer;
+    object-fit: contain;
+    transition: 0.3s;
+}

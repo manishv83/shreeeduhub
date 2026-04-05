@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const headerHTML = `
     <nav class="navbar">
-        <div class="logo" onclick="window.location.href='index.html'">Shree<span>Vani Tutorial</span></div>
+        <div class="logo" onclick="window.location.href='index.html'">
+                <img src="assets/icons/icon-192.png" alt="Shree Vani Tutorial" id="mainLogo">
+            </div>
         
         <div class="search-box">
             <input type="text" id="topicSearchInput" placeholder="Search Topics...">
