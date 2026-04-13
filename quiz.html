@@ -76,17 +76,7 @@
         </div>
     </div>
 
-    <div id="install-banner" class="install-container" style="display: none;">
-        <div class="install-content">
-            <span>Install <strong>Shree Vani Tutorial</strong> for offline practice! 📱</span>
-            <div class="install-actions">
-                <button id="btnInstall" class="next-btn" style="padding: 8px 20px;">Install</button>
-                <button id="btnNoThanks" class="sub-btn" style="padding: 8px 20px; font-size: 0.8rem;">Later</button>
-            </div>
-        </div>
-    </div>
-
-    
+       
 
     <script src="data/class1/science.js"></script><script src="data/class1/sst.js"></script><script src="data/class1/gk.js"></script>
     <script src="data/class2/science.js"></script><script src="data/class2/sst.js"></script><script src="data/class2/gk.js"></script>
@@ -107,14 +97,5 @@
     <script src="script.js"></script>
     <script src="header.js"></script>
     <script src="footer.js"></script>
-  <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('SW Registered'))
-                    .catch(err => console.log('SW Failed', err));
-            });
-        }
-    </script>
-</body>
+ </body>
 </html>

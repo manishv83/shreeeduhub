@@ -411,28 +411,6 @@ function displaySearchResults(results) {
 }
 function clearScores() { if (confirm("Clear scores?")) { localStorage.removeItem('eduQuizScores'); displayScores(); } }
 
-/* --- 6. PWA INSTALL LOGIC --- */
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    const banner = document.getElementById('install-banner');
-    if(banner) banner.style.display = 'block';
-});
-
-document.getElementById('btnInstall')?.addEventListener('click', async () => {
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-        deferredPrompt = null;
-        document.getElementById('install-banner').style.display = 'none';
-    }
-});
-
-document.getElementById('btnNoThanks')?.addEventListener('click', () => {
-    document.getElementById('install-banner').style.display = 'none';
-});
-
 window.onload = displayScores;
 // Add this inside window.onload or at the bottom of script.js
 const year = new Date().getFullYear();
