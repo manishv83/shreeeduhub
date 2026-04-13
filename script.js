@@ -149,60 +149,57 @@ function renderCurrentQuestion() {
     const area = document.getElementById('bulk-questions-area');
     updateProgressBar();
 
-    // AD BREAK: Every 3 questions
-    if (currentIndex > 0 && currentIndex % 5 === 0 && window.lastAdIndex !== currentIndex) {
-        let timeLeft = 5; // Reduced to 10 seconds
+// Inside renderCurrentQuestion() function in script.js
+if (currentIndex > 0 && currentIndex % 5 === 0 && window.lastAdIndex !== currentIndex) {
+    let timeLeft = 5;
+    
+    // Get the dynamic ad from your store-db.js
+    const adHTML = getMidQuizAd(); 
 
-        area.innerHTML = `
-            <div class="bulk-question-card animate-pop ad-break-card">
-                <div class="badge">Study Tip</div>
-                <h3>Quick Resource Break 💡</h3>
-                <p>Did you know? Using the right reference books can improve exam scores by up to 20%.</p>
-                
-                <div class="ad-preview-flex">
-                    <img src="https://via.placeholder.com/100x130?text=Exam+Guide">
-                    <div class="ad-text-right">
-                        <p style="margin:0; font-weight:600;">NCERT Plus Exemplar</p>
-                        <a href="storefront.html" target="_blank" class="amazon-btn-sm">View on Amazon</a>
-                    </div>
-                </div>
-
-                <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
-                
-                <button id="timed-continue-btn" class="next-btn" disabled style="background: #95a5a6; cursor: not-allowed; position: relative; overflow: hidden;">
-                    <span id="timer-text">Wait ${timeLeft}s...</span>
-                </button>
-                <p style="font-size: 0.7rem; color: #bbb; margin-top: 10px;">Next question loading shortly...</p>
-            </div>`;
-
-        const timerInterval = setInterval(() => {
-            timeLeft--;
-            const btn = document.getElementById('timed-continue-btn');
-            const txt = document.getElementById('timer-text');
+    area.innerHTML = `
+        <div class="bulk-question-card animate-pop ad-break-card">
+            <div class="badge">Study Tip</div>
+            <h3>Quick Resource Break 💡</h3>
+            <p>Using the right reference books can improve exam scores by up to 20%.</p>
             
-            if (btn && txt) {
-                if (timeLeft > 0) {
-                    txt.innerText = `Wait ${timeLeft}s...`;
-                } else {
-                    clearInterval(timerInterval);
-                    btn.disabled = false;
-                    btn.style.background = "#2ecc71"; 
-                    btn.style.cursor = "pointer";
-                    txt.innerText = `Continue to Question ${currentIndex + 1} ➡️`;
-                    
-                    btn.onclick = () => {
-                        window.lastAdIndex = currentIndex;
-                        renderCurrentQuestion();
-                    };
-                }
+            <div class="dynamic-ad-container" style="margin: 15px 0;">
+                ${adHTML}
+            </div>
+
+            <hr style="border:0; border-top:1px solid #eee; margin: 20px 0;">
+            
+            <button id="timed-continue-btn" class="next-btn" disabled style="background: #95a5a6; cursor: not-allowed;">
+                <span id="timer-text">Wait ${timeLeft}s...</span>
+            </button>
+        </div>`;
+
+    const timerInterval = setInterval(() => {
+        timeLeft--;
+        const btn = document.getElementById('timed-continue-btn');
+        const txt = document.getElementById('timer-text');
+        
+        if (btn && txt) {
+            if (timeLeft > 0) {
+                txt.innerText = `Wait ${timeLeft}s...`;
             } else {
                 clearInterval(timerInterval);
+                btn.disabled = false;
+                btn.style.background = "#2ecc71"; 
+                btn.style.cursor = "pointer";
+                txt.innerText = `Continue to Question ${currentIndex + 1} ➡️`;
+                
+                btn.onclick = () => {
+                    window.lastAdIndex = currentIndex;
+                    renderCurrentQuestion();
+                };
             }
-        }, 1000);
+        } else {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
 
-        return; 
-    }
-
+    return; 
+}
     // REGULAR QUESTION UI
     area.innerHTML = `
         <div class="bulk-question-card animate-pop">
@@ -275,17 +272,12 @@ function showFinalResults() {
         : { title: "Improve Your Score", desc: "Master the basics with these top-rated revision notes.", link: "YOUR_AMAZON_LINK" };
 
     const adCard = `
-        <div class="result-ad-container animate-pop">
-            <span class="badge" style="background: #f1c40f; color: #000;">Student's Choice</span>
-            <div class="result-ad-flex">
-                <div class="ad-text">
-                    <h4>${adContent.title}</h4>
-                    <p>${adContent.desc}</p>
-                    <a href="${adContent.link}" target="_blank" class="amazon-btn" style="padding: 8px 15px; font-size: 0.8rem;">View on Amazon</a>
-                </div>
-                <img src="https://via.placeholder.com/80x110?text=Books" alt="Book Thumb">
+        <div class="result-ad-section">
+                <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px; font-weight: 600;">
+                    ${isHighScore ? "Recommended for Advanced Study:" : "Recommended Revision Guide:"}
+                </p>
+                ${dynamicAdHTML}
             </div>
-        </div>
     `;
 
     document.getElementById('final-score').innerHTML = `
@@ -507,34 +499,35 @@ function closeSubjectOverlay() {
 }
 
 
-       function getMidQuizAd() {
-    if (typeof storefrontDatabase === 'undefined' || storefrontDatabase.length === 0) return "";
-
-    // 1. FILTER LOGIC: Look for products matching the current subject
-    // We use .toLowerCase() to ensure "physics" matches "Physics"
-    let targetedAds = storefrontDatabase.filter(p => 
-        p.title.toLowerCase().includes(lastSubject.toLowerCase()) || 
-        p.desc.toLowerCase().includes(lastSubject.toLowerCase())
-    );
-
-    // 2. FALLBACK LOGIC: If no specific subject book is found, pick any random ad
-    if (targetedAds.length === 0) {
-        targetedAds = storefrontDatabase;
+function getMidQuizAd() {
+    if (typeof storefrontDatabase === 'undefined' || storefrontDatabase.length === 0) {
+        return `<p style="font-size:0.8rem; color:#888;">Boost your prep with top-rated books. <a href="books.html">Browse Store</a></p>`;
     }
 
-    // 3. PICK ONE: Select a random ad from the filtered list
-    const ad = targetedAds[Math.floor(Math.random() * targetedAds.length)];
+    // SAFETY: If lastSubject is undefined, default to 'English' or pick random
+    const searchSubject = lastSubject ? lastSubject.toLowerCase() : "english";
+
+    let targetedAds = storefrontDatabase.filter(p => {
+        const s = p.subjects || p.subject; 
+        return Array.isArray(s) 
+            ? s.some(item => item.toLowerCase() === searchSubject)
+            : s.toLowerCase() === searchSubject;
+    });
+
+    // Pick the ad (Targeted or Fallback)
+    const ad = targetedAds.length > 0 
+        ? targetedAds[Math.floor(Math.random() * targetedAds.length)]
+        : storefrontDatabase[Math.floor(Math.random() * storefrontDatabase.length)];
 
     return `
-        <div class="bulk-question-card mid-quiz-promo" style="border: 2px dashed #3498db; background: #f0f7ff;">
-            <span class="badge" style="background:#3498db;">Top Rated for ${lastSubject}</span>
-            <h4 style="margin: 10px 0;">${ad.title}</h4>
-            <div style="display:flex; align-items:center; gap:15px; text-align:left;">
-                <img src="${ad.image}" style="width:70px; border-radius:4px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-                <div>
-                    <p style="font-size: 0.85rem; color: #444; margin-bottom:8px;">${ad.desc}</p>
-                    <a href="${ad.link}" target="_blank" class="amazon-btn" style="font-size: 0.75rem; padding: 6px 12px; display:inline-block;">View on Amazon</a>
-                </div>
+        <div class="ad-preview-flex" style="display: flex; align-items: center; gap: 15px; text-align: left; background: #fff; padding: 10px; border-radius: 8px; border: 1px solid #eee;">
+            <img src="${ad.image}" style="width: 70px; height: 90px; object-fit: cover; border-radius: 4px;">
+            <div class="ad-text-right">
+                <p style="margin: 0; font-size: 0.9rem; font-weight: 700; color: #2c3e50;">${ad.title}</p>
+                <a href="${ad.link}" target="_blank" rel="noopener noreferrer" 
+                   style="display: inline-block; background: #f1c40f; color: #000; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; margin-top: 8px;">
+                   View on Amazon 🛒
+                </a>
             </div>
         </div>
     `;
