@@ -11,13 +11,7 @@
     <meta name="theme-color" content="#2c3e50">
     <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW Failed', err));
-            });
-        }
-    </script>
+    
 </head>
 <body>
 <div class="contact-container" style="text-align: center; padding: 40px 20px;">

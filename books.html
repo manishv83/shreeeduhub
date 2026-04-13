@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Best recommended books and study tools for Class 1 to 12. Find NCERT Exemplars, JEE/NEET prep materials, and STEM kits at Shree Vani Tutorial.">
+    <title>Storefront | Shree Vani Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-light: #f4f7f6;
+        }
+
+        .storefront-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-light);
+            min-height: 80vh; /* Ensures footer stays down if few products */
+        }
+
+        .store-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Category Tabs */
+        .tab-menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            color: var(--primary-color);
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .amazon-btn {
+            display: block;
+            background: #f39c12;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .amazon-btn:hover {
+            background: #e67e22;
+        }
+
+        .badge {
+            background: #e74c3c;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 5px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .disclosure {
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+            margin-top: 50px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="storefront-container">
+        <div class="store-header">
+            <h1>Expert-recommended books and tools for academic success</h1>
+        </div>
+        <div class="tab-menu" id="class-tabs">
+        <button class="tab-btn active" data-filter="class" data-value="all">All Grades</button>
+        <button class="tab-btn" data-filter="class" data-value="primary">Class 1-5</button>
+        <button class="tab-btn" data-filter="class" data-value="secondary">Class 6-10</button>
+        <button class="tab-btn" data-filter="class" data-value="higher">Class 11-12</button>
+        <button class="tab-btn" data-filter="class" data-value="graduation">Graduation</button>
+        
+    </div>
+
+        
+        <div class="tab-menu subject-menu" id="subject-tabs">
+        <button class="tab-btn sub-tag" data-filter="subject" data-value="Science">Science 🔬</button>
+        <button class="tab-btn sub-tag" data-filter="subject" data-value="Math">Mathematics 📐</button>
+        <button class="tab-btn sub-tag" data-filter="subject" data-value="Physics">Physics ⚡</button>
+        <button class="tab-btn sub-tag" data-filter="subject" data-value="English">English 📖</button>
+        <button class="tab-btn sub-tag" data-filter="subject" data-value="GK">GK 🌍</button>
+    </div>
+
+        <div class="product-grid" id="dynamic-product-grid"></div>
+
+        
+    </div>
+
+    <script src="data/store-db.js"></script>
+
+    <script src="store-logic.js"></script>
+
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+    
+    
+</button>
+</body>
+</html>

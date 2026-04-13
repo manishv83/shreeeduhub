@@ -50,19 +50,18 @@ const masterDataMap = () => ({
 });
 // script.js
 window.addEventListener('load', () => {
-    // 1. Get the 'class' value from the URL (e.g., ?class=10)
     const urlParams = new URLSearchParams(window.location.search);
     const classId = urlParams.get('class');
 
-    // 2. If a class ID exists, trigger the overlay
     if (classId) {
-        // We use a small delay (100ms) to ensure the DOM and Data files are ready
         setTimeout(() => {
+            // Check if the showSubjects function exists (it should be in script.js)
             if (typeof showSubjects === 'function') {
                 showSubjects(parseInt(classId));
                 
-                // Optional: Clean the URL so refreshing doesn't keep opening the overlay
-                window.history.replaceState({}, document.title, "index.html");
+                // CLEAN URL: This removes the "?class=10" from the bar 
+                // but keeps the user on quiz.html
+                window.history.replaceState({}, document.title, window.location.pathname);
             }
         }, 150);
     }
@@ -506,19 +505,7 @@ function closeSubjectOverlay() {
     
     console.log("Escape successful: Overlay closed.");
 }
-// This checks: "Does topic exist? If yes, show the span. If no, show nothing."
-const topicTag = questionData.topic 
-    ? `<span class="q-topic-tag">${questionData.topic}</span>` 
-    : ''; 
 
-target.innerHTML = `
-    <div class="bulk-question-card">
-        <div class="q-header">
-            <span class="q-number">Question ${currentQuestionIndex + 1}</span>
-            ${topicTag} 
-        </div>
-        <div class="q-text">${questionData.question}</div>
-        </div>`;
 
        function getMidQuizAd() {
     if (typeof storefrontDatabase === 'undefined' || storefrontDatabase.length === 0) return "";
@@ -552,3 +539,42 @@ target.innerHTML = `
         </div>
     `;
 }
+let allNotes = []; // Global variable to store loaded notes
+
+async function loadNotes() {
+    try {
+        const response = await fetch('notes-list.json');
+        allNotes = await response.json();
+        renderNotes(allNotes); // Initial render
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+function renderNotes(notesToDisplay) {
+    const grid = document.getElementById('notes-grid');
+    if (!grid) return;
+
+    grid.innerHTML = notesToDisplay
+        .filter(note => note && typeof note === 'object') // Filter out null/undefined items
+        .map(note => `
+            <div class="note-card" data-topic="${note.topic || 'General'}">
+                <span class="tag">${note.topic || 'Notes'}</span>
+                <h3>${note.title || 'Untitled'}</h3>
+                <p>${note.description || ''}</p>
+                <a href="view-note.html?file=${encodeURIComponent(note.file)}" class="read-btn">Read Note</a>
+            </div>
+        `).join('');
+}
+function filterNotes() {
+    const selectedTopic = document.getElementById('topic-filter').value;
+    
+    if (selectedTopic === "all") {
+        renderNotes(allNotes);
+    } else {
+        const filtered = allNotes.filter(note => note.topic === selectedTopic);
+        renderNotes(filtered);
+    }
+}
+
+window.onload = loadNotes;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Practice | Shree Vani Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  
+
+    <div id="heroSection" style="display:none;"></div>
+
+    <main id="quiz-container" style="display:block; margin-top: 30px;">
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="bulk-questions-area"></div>
+    </main>
+
+    <div id="result-area" style="display:none;">
+        <div id="final-score"></div>
+        <button class="next-btn" onclick="location.href='index.html'">Finish & Home</button>
+    </div>
+
+    <div id="subjectOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="location.href='index.html'">&times;</span>
+            <h2 id="selectedClassTitle">Select Subject</h2>
+            <div id="subjectListButtons" class="subject-buttons-grid"></div>
+
+            <div id="topicSelection" style="display:none; margin-top: 20px;">
+                <h3>Choose Topic</h3>
+                <select id="topicDropdown" class="sub-btn" style="width: 100%; margin-top: 10px;"></select>
+                <button class="next-btn" style="margin-top: 15px;" onclick="startTopicQuiz()">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src="data/class1/science.js"></script><script src="data/class1/sst.js"></script><script src="data/class1/gk.js"></script>
+    <script src="data/class2/science.js"></script><script src="data/class2/sst.js"></script><script src="data/class2/gk.js"></script>
+    <script src="data/class3/science.js"></script><script src="data/class3/sst.js"></script><script src="data/class3/gk.js"></script>
+    <script src="data/class4/science.js"></script><script src="data/class4/sst.js"></script><script src="data/class4/gk.js"></script>
+    <script src="data/class5/science.js"></script><script src="data/class5/sst.js"></script><script src="data/class5/gk.js"></script>
+    <script src="data/class5/grammar.js"></script><script src="data/class5/computers.js"></script>
+    <script src="data/class6/science.js"></script><script src="data/class6/sst.js"></script><script src="data/class6/gk.js"></script>
+    <script src="data/class7/science.js"></script><script src="data/class7/sst.js"></script><script src="data/class7/gk.js"></script>
+    <script src="data/class8/science.js"></script><script src="data/class8/sst.js"></script><script src="data/class8/gk.js"></script>
+    <script src="data/class9/science.js"></script><script src="data/class9/sst.js"></script><script src="data/class9/gk.js"></script>
+    <script src="data/class10/science.js"></script><script src="data/class10/sst.js"></script><script src="data/class10/gk.js"></script>
+    <script src="data/class11/physics.js"></script>
+    <script src="data/class11/chemistry.js"></script>
+    <script src="data/class12/physics.js"></script>
+    <script src="data/class12/chemistry.js"></script>
+    <script src="script.js"></script>
+      <script src="header.js"></script>
+       <script src="footer.js"></script>
+</body>
+</html>

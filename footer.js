@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="storefront.html">Book Store</a></li>
+                    <li><a href="books.html">Recommended Books</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                 </ul>

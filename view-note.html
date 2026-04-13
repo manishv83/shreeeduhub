@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Vani Tutorial | K-12 Interactive Learning</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+    <script>
+  window.MathJax = {
+    tex: {
+        tags: 'ams',
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+        },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    }
+    };
+    </script>
+</head>
+<body>
+    <a href="notes.html" class="back-btn">← Back to Library</a>
+    <hr>
+    <div id="content">Loading note...</div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const fileName = params.get('file');
+
+        if (fileName) {
+          fetch(`content/${fileName}.md?v=` + Date.now())
+    .then(res => res.text())
+    .then(md => {
+        // 1. Convert Markdown to HTML
+        document.getElementById('content').innerHTML = marked.parse(md);
+
+        // 2. Tell MathJax to typeset the new content
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise().then(() => {
+                console.log("MathJax typesetting complete");
+            }).catch((err) => console.error("MathJax error:", err));
+        }
+    })
+    .catch(() => document.getElementById('content').innerHTML = "Note not found.");
+    }
+</script>
+    <script src="script.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+</body>
+</html>
