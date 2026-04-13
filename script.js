@@ -257,27 +257,23 @@ function showFinalResults() {
     const streak = updateStreak();
     const isHighScore = score >= 8;
 
+    // Trigger sounds and confetti
     if (score >= 8) {
         finalSound.play().catch(e => console.log("Audio blocked"));
         confetti({ particleCount: 100, spread: 70, origin: { x: 0, y: 0.6 } });
         confetti({ particleCount: 100, spread: 70, origin: { x: 1, y: 0.6 } });
-    } else if (score === 10) {
-        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
     }
 
-    // --- NEW: AD CARD LOGIC ---
-    // If they did well, we suggest "Advanced" books. If they struggled, we suggest "Revision" books.
-    const adContent = isHighScore 
-        ? { title: "Challenge Yourself!", desc: "You're a pro! Try the NCERT Exemplar for advanced problems.", link: "YOUR_AMAZON_LINK" }
-        : { title: "Improve Your Score", desc: "Master the basics with these top-rated revision notes.", link: "YOUR_AMAZON_LINK" };
+    // FIX: Generate the ad HTML before using it in the template literal
+    const dynamicAdHTML = getMidQuizAd();
 
     const adCard = `
-        <div class="result-ad-section">
-                <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px; font-weight: 600;">
-                    ${isHighScore ? "Recommended for Advanced Study:" : "Recommended Revision Guide:"}
-                </p>
-                ${dynamicAdHTML}
-            </div>
+        <div class="result-ad-section" style="background: #f9f9f9; padding: 15px; border-radius: 12px; margin-top: 15px;">
+            <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px; font-weight: 600;">
+                ${isHighScore ? "Recommended for Advanced Study:" : "Recommended Revision Guide:"}
+            </p>
+            ${dynamicAdHTML}
+        </div>
     `;
 
     document.getElementById('final-score').innerHTML = `
@@ -293,6 +289,32 @@ function showFinalResults() {
     saveScore(score, 10);
 }
 
+// ... keep your middle functions (getBadge, updateProgressBar, etc.) ...
+
+/* --- 5. UTILITIES --- */
+
+// MERGED ONLOAD: This ensures all startup tasks run together
+window.addEventListener('load', () => {
+    displayScores();
+    loadNotes();
+    
+    // Check for URL parameters (Class selection from Home)
+    const urlParams = new URLSearchParams(window.location.search);
+    const classId = urlParams.get('class');
+    if (classId && typeof showSubjects === 'function') {
+        setTimeout(() => {
+            showSubjects(parseInt(classId));
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }, 150);
+    }
+
+    // Set dynamic footer year
+    const year = new Date().getFullYear();
+    const footerText = document.querySelector('.site-footer p');
+    if (footerText) {
+        footerText.innerHTML = `&copy; ${year} Shree Vani Tutorial. All Rights Reserved.`;
+    }
+});
 function getBadge(s) {
     if (s === 10) return { name: "Einstein", color: "#f1c40f", emoji: "🧠" };
     if (s >= 8) return { name: "Scholar", color: "#3498db", emoji: "🎓" };
