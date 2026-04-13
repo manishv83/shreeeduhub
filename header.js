@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li class="dropdown">
             <a href="#">Resources ▾</a>
             <ul class="dropdown-menu">
-                <li><a href="index.html">MCQ Quiz</a></li>
+                <li><a href="quiz.html">MCQ Quiz</a></li>
                 <li><a href="books.html">Recommended Books</a></li>
             </ul>
         </li>
