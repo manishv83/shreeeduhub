@@ -1,5 +1,15 @@
 const storefrontDatabase = [
-     {
+    {
+        id: "m1",
+        category: ["all","moral", "primary"],
+        subjects: ["English"], 
+        title: "101 Tales The Great Panchatantra Collection",
+        desc: "This compilation of 101 tales from the Panchatantra aims to guide the young readers about wise conduct, human nature, and the right path for attaining success in life.",
+        image: "https://m.media-amazon.com/images/I/71My1M0AgZL._SL1500_.jpg",
+        link: "https://amzn.to/4vLxFkj",
+        badge: "Best Seller"
+    },
+    {
         id: "p1",
         category: ["all","primary"],
         subjects: ["English", "Grammar"], 
