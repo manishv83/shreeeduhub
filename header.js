@@ -11,14 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <li><a href="books.html" style="color: #f1c40f;">Book and Stationery Recommendations 🛒</a></li>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="notes.html" style="color: #ffca28; font-weight: bold;">Notes</a></li>
-            <li class="dropdown">
-            <a href="#">Resources ▾</a>
-            <ul class="dropdown-menu">
-                <li><a href="quiz.html">MCQ Quiz</a></li>
-                <li><a href="books.html">Recommended Books</a></li>
-            </ul>
-        </li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="quiz.html">MCQ Quiz</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>`;

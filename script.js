@@ -529,8 +529,7 @@ function getMidQuizAd() {
                    View on Amazon 🛒
                 </a>
             </div>
-        </div>
-    `;
+        </div> `;
 }
 let allNotes = []; // Global variable to store loaded notes
 
