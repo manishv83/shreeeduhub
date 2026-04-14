@@ -34,7 +34,7 @@ const storefrontDatabase = [
         id: "p4",
         category: ["all","primary"],
         subjects: ["Math", "Science", "GK"], 
-        title: "OOswaal One for All Olympiads | Class 6 Maths, Science, GK ",
+        title: "Oswaal One for All Olympiads | Class 6 Maths, Science, GK ",
         desc: "Prep-Guide With Level 1, 2 & Achievers Section (Set of 3 Books).",
         image: "https://m.media-amazon.com/images/I/61BkNnRWp2L._SL1001_.jpg",
         link: "https://amzn.to/4vjzi8m",
@@ -106,7 +106,7 @@ const storefrontDatabase = [
     category: "graduation",
     subjects: "Physics",
     title: "Optics by Ajoy Ghatak",
-    desc: "Wonderful book on waves and oscillations.",
+    desc: "Optics, the book, is a classic text designed to provide a comprehensive exploration of light and its interaction with matter.",
     image: "https://m.media-amazon.com/images/I/61m1s07DjZL._SL1500_.jpg",
     link: "https://amzn.to/4sIm6rm",
     badge: "Expert Choice"
