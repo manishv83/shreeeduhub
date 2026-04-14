@@ -944,13 +944,12 @@ body {
         font-size: 1.1rem !important;
     }
 }
-
-/* --- MOBILE HEADER STYLING --- */
+/* --- MOBILE HEADER LOGIC --- */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
+        position: relative; /* Header remains scrollable */
         padding: 10px 15px !important;
-        position: relative; /* Keep it scrollable */
     }
 
     .logo-container {
@@ -960,64 +959,57 @@ body {
         align-items: center;
     }
 
-    #mainLogo {
-        height: 50px !important; /* Compact logo */
-    }
-
     .mobile-menu-btn {
-        display: block !important;
-        font-size: 1.8rem;
+        display: block; /* Show hamburger */
         background: none;
         border: none;
         color: white;
+        font-size: 2rem;
         cursor: pointer;
     }
 
     .search-box {
         width: 100%;
         margin: 10px 0;
-        order: 2;
+        order: 2; /* Search sits under logo/hamburger */
     }
 
-    /* Hide the menu items by default on mobile */
+    /* --- THE HIDDEN MENU --- */
     .nav-links {
-        display: none; 
+        display: none; /* Hidden by default */
         flex-direction: column;
         width: 100%;
-        background: #34495e; /* Slightly different shade for contrast */
+        background: #34495e; /* Contrast background */
         border-radius: 8px;
+        margin-top: 10px;
         padding: 10px 0;
         order: 3;
     }
 
-    /* When menu is active, show the items */
+    /* Shown only when hamburger is clicked */
     .nav-links.active {
         display: flex !important;
     }
 
     .nav-links li {
         width: 100%;
+        text-align: center;
         border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .nav-links a {
         display: block;
         padding: 15px;
-        text-align: center;
-        font-size: 1rem;
-    }
-
-    .special-link {
-        color: #f1c40f !important;
+        font-size: 1.1rem;
     }
 }
 
-/* Ensure hamburger is hidden on desktop */
+/* --- DESKTOP RESET --- */
 @media (min-width: 769px) {
     .mobile-menu-btn {
-        display: none;
+        display: none; /* Hide hamburger on PC */
     }
     .nav-links {
-        display: flex !important; /* Always show links on desktop */
+        display: flex !important; /* Always show horizontal menu on PC */
     }
 }
