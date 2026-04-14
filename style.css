@@ -906,3 +906,42 @@ body {
     gap: 25px !important;
 }
 
+/* --- NOTES LIBRARY (MOBILE OPTIMIZED) --- */
+.notes-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 5%;
+}
+
+#notes-grid {
+    display: grid !important;
+    /* Desktop: 3 columns */
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+    #notes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Mobile: Single column for maximum readability */
+@media (max-width: 600px) {
+    #notes-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .note-card {
+        min-height: auto !important; /* Allow card to shrink/grow based on text */
+        padding: 15px !important;
+    }
+    
+    .note-card h3 {
+        font-size: 1.1rem !important;
+    }
+}
+
