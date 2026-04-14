@@ -945,3 +945,77 @@ body {
     }
 }
 
+/* --- MOBILE PRESENTATION FIXES --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 5% !important;
+        gap: 10px;
+    }
+
+    .logo-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #mainLogo {
+        height: 50px !important; /* Smaller logo for mobile */
+    }
+
+    .mobile-menu-btn {
+        display: block; /* Show hamburger only on mobile */
+        background: none;
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .search-box {
+        width: 100%; /* Search takes full width */
+        margin: 5px 0;
+    }
+
+    /* Hide links by default on mobile */
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background: #34495e;
+        border-radius: 8px;
+        padding: 10px 0;
+        gap: 0;
+    }
+
+    /* Show links when 'active' class is added via JS */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .special-link {
+        color: #f1c40f !important;
+        font-weight: bold;
+    }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
