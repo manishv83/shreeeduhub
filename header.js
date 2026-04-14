@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="logo" onclick="window.location.href='index.html'">
                 <img src="assets/icons/icon-192.png" alt="Shree Vani Tutorial" id="mainLogo">
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">☰</button>
         </div>
 
         <div class="search-box">
@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
 });
 
-// Function to toggle menu on mobile
 function toggleMobileMenu() {
     const nav = document.getElementById('navLinks');
     nav.classList.toggle('active');
