@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Vani Tutorial | K-12 Interactive Learning</title>
+    <title>Shree Vani Tutorial | Interactive Learning</title>
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -46,7 +46,18 @@
                 console.log("MathJax typesetting complete");
             }).catch((err) => console.error("MathJax error:", err));
         }
-    })
+    // Title 
+let cleanTitle = fileName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+document.title = cleanTitle + " | Shree Vani Tutorial";
+
+// Meta description update 
+let metaDesc = document.querySelector('meta[name="description"]');
+if (!metaDesc) {
+    metaDesc = document.createElement('meta');
+    metaDesc.name = "description";
+    document.head.appendChild(metaDesc);
+}
+metaDesc.content = `Read detailed notes on ${cleanTitle} at Shree Vani Tutorial.`;})
     .catch(() => document.getElementById('content').innerHTML = "Note not found.");
     }
 </script>
