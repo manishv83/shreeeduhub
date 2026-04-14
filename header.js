@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="logo" onclick="window.location.href='index.html'">
                 <img src="assets/icons/icon-192.png" alt="Shree Vani Tutorial" id="mainLogo">
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
 
         <div class="search-box">
@@ -13,19 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <button onclick="searchByTopic()">🔍</button>
         </div>
 
-        <ul class="nav-links" id="navLinks">
+       
             <li><a href="index.html">Home</a></li>
             <li><a href="notes.html">Notes</a></li>
             <li><a href="quiz.html">MCQ Quiz</a></li>
             <li><a href="books.html" style="color: #f1c40f;">Books 🛒</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </nav>`;
 
-    document.body.insertAdjacentHTML('afterbegin', headerHTML);
-});
+    });
 
-function toggleMobileMenu() {
-    const nav = document.getElementById('navLinks');
-    nav.classList.toggle('active');
-}
+
