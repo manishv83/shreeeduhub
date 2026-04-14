@@ -945,12 +945,12 @@ body {
     }
 }
 
-/* --- MOBILE PRESENTATION FIXES --- */
+/* --- MOBILE HEADER STYLING --- */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        padding: 10px 5% !important;
-        gap: 10px;
+        padding: 10px 15px !important;
+        position: relative; /* Keep it scrollable */
     }
 
     .logo-container {
@@ -961,61 +961,63 @@ body {
     }
 
     #mainLogo {
-        height: 50px !important; /* Smaller logo for mobile */
+        height: 50px !important; /* Compact logo */
     }
 
     .mobile-menu-btn {
-        display: block; /* Show hamburger only on mobile */
+        display: block !important;
+        font-size: 1.8rem;
         background: none;
-        border: 1px solid rgba(255,255,255,0.3);
+        border: none;
         color: white;
-        font-size: 1.5rem;
-        padding: 5px 10px;
-        border-radius: 5px;
         cursor: pointer;
     }
 
     .search-box {
-        width: 100%; /* Search takes full width */
-        margin: 5px 0;
+        width: 100%;
+        margin: 10px 0;
+        order: 2;
     }
 
-    /* Hide links by default on mobile */
+    /* Hide the menu items by default on mobile */
     .nav-links {
         display: none; 
         flex-direction: column;
         width: 100%;
-        background: #34495e;
+        background: #34495e; /* Slightly different shade for contrast */
         border-radius: 8px;
         padding: 10px 0;
-        gap: 0;
+        order: 3;
     }
 
-    /* Show links when 'active' class is added via JS */
+    /* When menu is active, show the items */
     .nav-links.active {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-links li {
         width: 100%;
-        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .nav-links a {
         display: block;
-        padding: 12px;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding: 15px;
+        text-align: center;
+        font-size: 1rem;
     }
 
     .special-link {
         color: #f1c40f !important;
-        font-weight: bold;
     }
 }
 
-/* Hide hamburger on desktop */
+/* Ensure hamburger is hidden on desktop */
 @media (min-width: 769px) {
     .mobile-menu-btn {
         display: none;
+    }
+    .nav-links {
+        display: flex !important; /* Always show links on desktop */
     }
 }
