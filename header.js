@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="logo" onclick="window.location.href='index.html'">
                 <img src="assets/icons/icon-192.png" alt="Shree Vani Tutorial" id="mainLogo">
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
 
         <div class="search-box">
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="index.html">Home</a></li>
             <li><a href="notes.html">Notes</a></li>
             <li><a href="quiz.html">MCQ Quiz</a></li>
-            <li><a href="books.html" class="special-link">Books & Stationery 🛒</a></li>
+            <li><a href="books.html" style="color: #f1c40f;">Books 🛒</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>`;
