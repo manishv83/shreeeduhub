@@ -992,7 +992,13 @@ body {
     margin: 25px 0;
     border: 5px solid var(--light-bg);
 }
-
+/* Image styling inside the card */
+.story-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures image isn't stretched */
+    border-bottom: 3px solid #f1f8e9;
+}
 /* Quiz Styling */
 .interactive-quiz {
     background-color: var(--light-bg);
