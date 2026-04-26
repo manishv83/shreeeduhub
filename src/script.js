@@ -597,15 +597,27 @@ function loadStories() {
         .catch(err => console.error("Error loading stories:", err));
 }
 
-// Disable right-click
+// 1. Disable Right-Click Context Menu
 document.addEventListener('contextmenu', event => event.preventDefault());
-// Disable keyboard shortcuts (F12, Ctrl+Shift+I, etc.)
-document.onkeydown = function(e) {
-    if(e.keyCode == 123) return false; // F12
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
-    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // View Source
-}
 
+// 2. Disable Keyboard Shortcuts (Ctrl+C, Ctrl+U, F12)
+document.onkeydown = function(e) {
+    // Disable F12 (Developer Tools)
+    if(e.keyCode == 123) return false;
+
+    // Disable Ctrl+Shift+I (Inspect)
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+
+    // Disable Ctrl+Shift+C (Element Selector)
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+
+    // Disable Ctrl+Shift+J (Console)
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+
+    // Disable Ctrl+U (View Source)
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+
+    // Disable Ctrl+C (Copy)
+    if(e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+};
 

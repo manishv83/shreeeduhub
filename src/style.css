@@ -1090,3 +1090,21 @@ body {
 .feature-card:hover {
     transform: translateY(-5px);
 }
+
+/* Prevents text selection across the entire site */
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;      /* IE 10 and 11 */
+    user-select: none;          /* Standard syntax */
+}
+
+/* Optional: Allow selection in search boxes so students can still type */
+input, textarea {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+@media print {
+    body { display: none !important; }
+}
