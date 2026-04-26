@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Timmy the Tortoise",
+        "category": "Honesty",
+        "description": "Learn why slow and steady, along with truth, wins the race.",
+        "link": "timmy-the-tortoise.html",
+        "image": "../assets/images/tortoise.jpg"
+    },
+    {
+        "title": "The Traveler and the Tree",
+        "category": "Gratitude",
+        "description": "A lesson on appreciating nature and those who help us.",
+        "link": "the-traveler-and-the-tree.html",
+        "image": "../assets/images/traveler.jpg"
+    }
+]

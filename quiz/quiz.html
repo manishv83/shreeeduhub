@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Vani Tutorial | K-12 Interactive Learning</title>
+    
+    <link rel="stylesheet" href="../src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+      
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    
+</head>
+<body>
+
+    <div id="heroSection">
+        <header class="hero">
+            <h1>Learn. Practice. Excel.</h1>
+            <p>Interactive Quizzes for Students (Class 1 to 12)</p>
+        </header>
+
+        <section class="grid-wrapper">
+            <div class="class-card" onclick="showSubjects(1)"> <div class="card-icon">🌱</div> <h3>Class 1</h3> </div>
+            <div class="class-card" onclick="showSubjects(2)"> <div class="card-icon">🎨</div> <h3>Class 2</h3> </div>
+            <div class="class-card" onclick="showSubjects(3)"> <div class="card-icon">🚲</div> <h3>Class 3</h3> </div>
+            <div class="class-card" onclick="showSubjects(4)"> <div class="card-icon">🌍</div> <h3>Class 4</h3> </div>
+            <div class="class-card" onclick="showSubjects(5)"> <div class="card-icon">🧪</div> <h3>Class 5</h3> </div>
+            <div class="class-card" onclick="showSubjects(6)"> <div class="card-icon">🔍</div> <h3>Class 6</h3> </div>
+            <div class="class-card" onclick="showSubjects(7)"> <div class="card-icon">🏛️</div> <h3>Class 7</h3> </div>
+            <div class="class-card" onclick="showSubjects(8)"> <div class="card-icon">🧬</div> <h3>Class 8</h3> </div>
+            <div class="class-card" onclick="showSubjects(9)"> <div class="card-icon">📐</div> <h3>Class 9</h3> </div>
+            <div class="class-card" onclick="showSubjects(10)"> <div class="card-icon">🎓</div> <h3>Class 10</h3> </div>
+            <div class="class-card" onclick="showSubjects(11)"> <div class="card-icon">⚛️</div> <h3>Class 11</h3> </div>
+            <div class="class-card" onclick="showSubjects(12)"> <div class="card-icon">🔭</div> <h3>Class 12</h3> </div>
+        </section>
+
+        <div class="leaderboard-box">
+            <h3>Top Scorers 🏆</h3>
+            <ul id="scoreList"></ul>
+            <button class="next-btn" style="background:#e74c3c; margin-top:10px; font-size: 0.8rem;" onclick="clearScores()">
+                Reset Records 🗑️
+            </button>
+        </div>
+    </div>
+
+    <main id="quiz-container" style="display:none;">
+        <button class="close-btn" style="float: right; margin-bottom: 10px;" onclick="location.reload()">✖ Exit</button>
+        
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div id="bulk-questions-area"></div>
+    </main>
+
+    <div id="result-area" style="display:none;">
+        <div id="final-score"></div>
+        <div id="result-ad-slot" class="result-promo-box"></div>
+        <button class="next-btn" onclick="location.reload()">Take Another Quiz 🔄</button>
+    </div>
+
+    <div id="subjectOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay()">&times;</span>
+            <h2 id="selectedClassTitle">Select Subject</h2>
+            <div id="subjectListButtons" class="subject-buttons-grid"></div>
+
+            <div id="topicSelection" style="display:none; margin-top: 20px;">
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <h3>Choose Topic</h3>
+                <select id="topicDropdown" class="sub-btn" style="width: 100%; margin-top: 10px;"></select>
+                <button class="next-btn" style="margin-top: 15px;" onclick="startTopicQuiz()">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+       
+
+    <script src="data/class1/science.js"></script><script src="data/class1/sst.js"></script><script src="data/class1/gk.js"></script>
+    <script src="data/class2/science.js"></script><script src="data/class2/sst.js"></script><script src="data/class2/gk.js"></script>
+    <script src="data/class3/science.js"></script><script src="data/class3/sst.js"></script><script src="data/class3/gk.js"></script>
+    <script src="data/class4/science.js"></script><script src="data/class4/sst.js"></script><script src="data/class4/gk.js"></script>
+    <script src="data/class5/science.js"></script><script src="data/class5/sst.js"></script><script src="data/class5/gk.js"></script>
+    <script src="data/class5/grammar.js"></script><script src="data/class5/computers.js"></script>
+    <script src="data/class6/science.js"></script><script src="data/class6/sst.js"></script><script src="data/class6/gk.js"></script>
+    <script src="data/class7/science.js"></script><script src="data/class7/sst.js"></script><script src="data/class7/gk.js"></script>
+    <script src="data/class8/science.js"></script><script src="data/class8/sst.js"></script><script src="data/class8/gk.js"></script>
+    <script src="data/class9/science.js"></script><script src="data/class9/sst.js"></script><script src="data/class9/gk.js"></script>
+    <script src="data/class10/science.js"></script><script src="data/class10/sst.js"></script><script src="data/class10/gk.js"></script>
+    <script src="data/class11/physics.js"></script>
+    <script src="data/class11/chemistry.js"></script>
+    <script src="data/class12/physics.js"></script>
+    <script src="data/class12/chemistry.js"></script>
+    <script src="../src/store-db.js"></script>
+    <script src="../src/script.js"></script>
+    <script src="../src/header.js"></script>
+    <script src="../src/footer.js"></script>
+ </body>
+</html>

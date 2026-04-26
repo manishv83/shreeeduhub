@@ -1,0 +1,30 @@
+[
+    {
+    "title": "Current Electricity",
+    "topic": "Electricity and Magnetism",
+    "file": "current-electricity",
+    "description": "Introduction to current electricity",
+    "date": "2026-04-09"
+  },
+  {
+    "title": "Quantum Mechanics Basics",
+    "topic": "Quantum Mechanics",
+    "file": "quantum-intro",
+    "description": "An introduction to wave-particle duality.",
+    "date": "2026-04-08"
+  },
+  {
+    "title": "Thermodynamics Laws",
+    "topic": "Thermal Physics",
+    "file": "thermo-laws",
+    "description": "Understanding the four laws of thermodynamics.",
+    "date": "2026-04-07"
+  },
+  {
+    "title": "Superposition of Waves",
+    "topic": "Optics",
+    "file": "superposition",
+    "description": "Superposition of Waves",
+    "date": "2026-04-13"
+  }
+]
