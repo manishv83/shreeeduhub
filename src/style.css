@@ -961,6 +961,17 @@ body {
     margin: 0;
     padding: 20px;
 }
+/* Container for all stories */
+.story-grid {
+    display: grid;
+    /* Automatically creates as many columns as fit (min 280px wide) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 
 .story-card {
     max-width: 750px;
