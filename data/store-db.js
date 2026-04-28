@@ -54,7 +54,7 @@ const storefrontDatabase = [
         id: "m6",
         category: ["all","moral","primary"],
         subjects: ["English"], 
-        title: "Wren & Martin Grammar",
+        title: "The Importance of Being Earnest",
         desc: "This comedic masterpiece is a whimsical exploration of societal conventions, mistaken identities, and the absurdities of Victorian society, guaranteed to leave you laughing out loud.",
         image: "https://m.media-amazon.com/images/I/71czCCueUaL._SL1500_.jpg",
         link: "https://amzn.to/48AiX5t",
