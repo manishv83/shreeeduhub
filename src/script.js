@@ -584,12 +584,13 @@ function loadStories() {
         .then(stories => {
             grid.innerHTML = stories.map(story => `
                 <div class="story-card">
-                    <img src="${story.image}" alt="${story.title}">
+                <a href="${story.link}">
+                    <img src="${story.image}" alt="${story.title}"></a>
                     <div class="story-info">
                         <span class="tag">${story.category}</span>
                         <h3>${story.title}</h3>
                         <p>${story.description}</p>
-                        <a href="${story.link}" class="read-btn">Read Story →</a>
+                        <a href="${story.link}" class="read-btn">Read Story</a>
                     </div>
                 </div>
             `).join('');
