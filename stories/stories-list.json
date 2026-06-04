@@ -1,10 +1,10 @@
 [
     {
-        "title": "Timmy the Tortoise",
-        "category": "Honesty",
-        "description": "Learn why slow and steady, along with truth, wins the race.",
-        "link": "timmy-the-tortoise.html",
-        "image": "../assets/images/tortoise.jpg"
+        "title": "The Lion and The Mouse",
+        "category": "Kindness and Friendship",
+        "description": "A short moral story on kindness and friendship. Even the smallest friends can be of great help.",
+        "link": "the-lion-and-the-mouse-moral-story.html",
+        "image": "../assets/images/lion_mouse2.png"
     },
     {
         "title": "The Traveller and the Tree",
