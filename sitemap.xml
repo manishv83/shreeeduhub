@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://shreevanitutorial.in/</loc>
-  <lastmod>2026-04-05T12:34:14+00:00</lastmod>
-</url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shreevanitutorial.in/index.html</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://shreevanitutorial.in/books.html</loc>
+    <priority>0.90</priority>
+  <url>
+    <loc>https://shreevanitutorial.in/storefront.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shreevanitutorial.in/stories/index.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shreevanitutorial.in/quiz/quiz.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shreevanitutorial.in/about.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shreevanitutorial.in/notes/notes.html</loc>
+    <priority>0.80</priority>
+  </url>
 
 </urlset>
